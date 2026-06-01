@@ -117,56 +117,9 @@ export default function AboutSection() {
           <div className="w-24 h-1 gold-gradient mx-auto rounded-full" />
         </div>
 
-        {/* Author Card Section */}
-        <div
-          className={`transition-all duration-700 delay-200 mb-16 ${
-            isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
-          }`}
-        >
-          <div className="max-w-2xl mx-auto">
-            {/* Quote Card with Author Info */}
-            <div className="bg-card border border-border rounded-lg p-8 premium-shadow">
-              <div className="flex items-start gap-4 mb-6">
-                <div className="w-16 h-16 rounded-full overflow-hidden flex-shrink-0">
-                  <Image
-                    src="/images/author-portrait.jpg"
-                    alt="Shashidhar Sharma"
-                    width={64}
-                    height={64}
-                    className="object-cover object-top"
-                  />
-                </div>
-                <div>
-                  <p className="font-serif font-bold text-foreground text-lg">Shashidhar Sharma</p>
-                  <p className="text-gold text-sm font-medium">Author & Speaker</p>
-                </div>
-              </div>
-              
-              {/* Red Quote */}
-              <p className="font-serif text-lg italic text-gold leading-relaxed">
-                His work ultimately asks a defining question of our times: How do we remain deeply human in an age of accelerating intelligence?
-              </p>
-            </div>
-
-            {/* Achievement Cards */}
-            <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 mt-8">
-              {achievements.map((item, index) => (
-                <div
-                  key={index}
-                  className="bg-card border border-border rounded-lg p-4 text-center hover:border-gold/50 transition-colors premium-shadow"
-                >
-                  <item.icon className="w-6 h-6 text-gold mx-auto mb-2" />
-                  <p className="font-serif text-xl font-bold text-foreground">{item.label}</p>
-                  <p className="text-xs text-muted-foreground mt-1">{item.description}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-
         {/* Biography Section with Image */}
         <div
-          className={`transition-all duration-700 delay-400 mb-20 ${
+          className={`transition-all duration-700 delay-200 mb-20 ${
             isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
           }`}
         >
@@ -219,8 +172,9 @@ export default function AboutSection() {
               </div>
             </div>
 
-            {/* Author Portrait Image */}
-            <div className="lg:col-span-1">
+            {/* Author Portrait Image and Card Section */}
+            <div className="lg:col-span-1 flex flex-col gap-6">
+              {/* Author Portrait Image */}
               <div className="relative aspect-[3/4] rounded-lg overflow-hidden premium-shadow-lg">
                 <Image
                   src="/images/author-headshot.jpg"
@@ -230,6 +184,44 @@ export default function AboutSection() {
                   priority
                 />
                 <div className="absolute bottom-0 left-0 right-0 h-1 gold-gradient" />
+              </div>
+
+              {/* Quote Card with Author Info - Below Image */}
+              <div className="bg-card border border-border rounded-lg p-6 premium-shadow">
+                <div className="flex items-start gap-3 mb-4">
+                  <div className="w-12 h-12 rounded-full overflow-hidden flex-shrink-0">
+                    <Image
+                      src="/images/author-portrait.jpg"
+                      alt="Shashidhar Sharma"
+                      width={48}
+                      height={48}
+                      className="object-cover object-top"
+                    />
+                  </div>
+                  <div>
+                    <p className="font-serif font-bold text-foreground">Shashidhar Sharma</p>
+                    <p className="text-gold text-xs font-medium">Author & Speaker</p>
+                  </div>
+                </div>
+                
+                {/* Red Quote */}
+                <p className="font-serif text-sm italic text-gold leading-relaxed">
+                  His work ultimately asks a defining question of our times: How do we remain deeply human in an age of accelerating intelligence?
+                </p>
+              </div>
+
+              {/* Achievement Cards */}
+              <div className="grid grid-cols-2 gap-3">
+                {achievements.map((item, index) => (
+                  <div
+                    key={index}
+                    className="bg-card border border-border rounded-lg p-3 text-center hover:border-gold/50 transition-colors premium-shadow"
+                  >
+                    <item.icon className="w-5 h-5 text-gold mx-auto mb-1" />
+                    <p className="font-serif text-lg font-bold text-foreground">{item.label}</p>
+                    <p className="text-xs text-muted-foreground mt-0.5">{item.description}</p>
+                  </div>
+                ))}
               </div>
             </div>
           </div>
