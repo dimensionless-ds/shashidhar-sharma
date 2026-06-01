@@ -123,11 +123,24 @@ const pressImages = [
   "/images/press-5-bookends.jpg",
 ]
 
+const eventImages = [
+  "/images/event-1-corporate-award.jpg",
+  "/images/event-2-panel-discussion.jpg",
+  "/images/event-3-christ-university.jpg",
+  "/images/event-4-featherlite-speaking.jpg",
+  "/images/event-5-cognitive-summit.jpg",
+  "/images/event-6-podium-speaking.jpg",
+  "/images/event-7-sentient-spaces.jpg",
+]
+
 export default function ArticlesSection() {
   const [isVisible, setIsVisible] = useState(false)
   const [activeCategory, setActiveCategory] = useState("all")
-  const [currentSlide, setCurrentSlide] = useState(0)
+  const [pressSlide, setPressSlide] = useState(0)
+  const [eventSlide, setEventSlide] = useState(0)
   const sectionRef = useRef<HTMLElement>(null)
+  const pressIntervalRef = useRef<NodeJS.Timeout | null>(null)
+  const eventIntervalRef = useRef<NodeJS.Timeout | null>(null)
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -149,6 +162,32 @@ export default function ArticlesSection() {
     return () => {
       observer.disconnect()
       clearTimeout(timer)
+    }
+  }, [])
+
+  // Auto-rotate press carousel every 1.3 seconds
+  useEffect(() => {
+    pressIntervalRef.current = setInterval(() => {
+      setPressSlide((prev) => (prev + 1) % pressImages.length)
+    }, 1300)
+
+    return () => {
+      if (pressIntervalRef.current) {
+        clearInterval(pressIntervalRef.current)
+      }
+    }
+  }, [])
+
+  // Auto-rotate event carousel every 1.3 seconds
+  useEffect(() => {
+    eventIntervalRef.current = setInterval(() => {
+      setEventSlide((prev) => (prev + 1) % eventImages.length)
+    }, 1300)
+
+    return () => {
+      if (eventIntervalRef.current) {
+        clearInterval(eventIntervalRef.current)
+      }
     }
   }, [])
 
@@ -227,7 +266,7 @@ export default function ArticlesSection() {
                     <div
                       key={index}
                       className={`absolute inset-0 transition-opacity duration-500 ${
-                        index === currentSlide ? "opacity-100" : "opacity-0"
+                        index === pressSlide ? "opacity-100" : "opacity-0"
                       }`}
                     >
                       <Image
@@ -241,14 +280,26 @@ export default function ArticlesSection() {
 
                   {/* Navigation arrows */}
                   <button
-                    onClick={() => setCurrentSlide((prev) => (prev - 1 + pressImages.length) % pressImages.length)}
+                    onClick={() => {
+                      setPressSlide((prev) => (prev - 1 + pressImages.length) % pressImages.length)
+                      if (pressIntervalRef.current) clearInterval(pressIntervalRef.current)
+                      pressIntervalRef.current = setInterval(() => {
+                        setPressSlide((p) => (p + 1) % pressImages.length)
+                      }, 1300)
+                    }}
                     className="absolute left-2 top-1/2 -translate-y-1/2 z-10 bg-background/80 hover:bg-background text-foreground p-2 rounded-full transition-all"
                     aria-label="Previous slide"
                   >
                     <ChevronLeft className="w-5 h-5" />
                   </button>
                   <button
-                    onClick={() => setCurrentSlide((prev) => (prev + 1) % pressImages.length)}
+                    onClick={() => {
+                      setPressSlide((prev) => (prev + 1) % pressImages.length)
+                      if (pressIntervalRef.current) clearInterval(pressIntervalRef.current)
+                      pressIntervalRef.current = setInterval(() => {
+                        setPressSlide((p) => (p + 1) % pressImages.length)
+                      }, 1300)
+                    }}
                     className="absolute right-2 top-1/2 -translate-y-1/2 z-10 bg-background/80 hover:bg-background text-foreground p-2 rounded-full transition-all"
                     aria-label="Next slide"
                   >
@@ -260,9 +311,15 @@ export default function ArticlesSection() {
                     {pressImages.map((_, index) => (
                       <button
                         key={index}
-                        onClick={() => setCurrentSlide(index)}
+                        onClick={() => {
+                          setPressSlide(index)
+                          if (pressIntervalRef.current) clearInterval(pressIntervalRef.current)
+                          pressIntervalRef.current = setInterval(() => {
+                            setPressSlide((p) => (p + 1) % pressImages.length)
+                          }, 1300)
+                        }}
                         className={`w-2 h-2 rounded-full transition-all ${
-                          index === currentSlide ? "bg-gold w-6" : "bg-background/60"
+                          index === pressSlide ? "bg-gold w-6" : "bg-background/60"
                         }`}
                         aria-label={`Go to slide ${index + 1}`}
                       />
@@ -282,14 +339,74 @@ export default function ArticlesSection() {
         >
           <div className="bg-card border border-border rounded-xl overflow-hidden premium-shadow">
             <div className="grid md:grid-cols-3 gap-0">
-              {/* Left side: Events collage */}
+              {/* Left side: Events carousel */}
               <div className="md:col-span-2 relative aspect-video md:aspect-auto order-2 md:order-1">
-                <Image
-                  src="/images/events-collage.jpg"
-                  alt="Events and speaking engagements"
-                  fill
-                  className="object-cover"
-                />
+                {/* Carousel container */}
+                <div className="relative w-full h-full">
+                  {eventImages.map((image, index) => (
+                    <div
+                      key={index}
+                      className={`absolute inset-0 transition-opacity duration-500 ${
+                        index === eventSlide ? "opacity-100" : "opacity-0"
+                      }`}
+                    >
+                      <Image
+                        src={image}
+                        alt={`Speaking event ${index + 1}`}
+                        fill
+                        className="object-cover"
+                      />
+                    </div>
+                  ))}
+
+                  {/* Navigation arrows */}
+                  <button
+                    onClick={() => {
+                      setEventSlide((prev) => (prev - 1 + eventImages.length) % eventImages.length)
+                      if (eventIntervalRef.current) clearInterval(eventIntervalRef.current)
+                      eventIntervalRef.current = setInterval(() => {
+                        setEventSlide((p) => (p + 1) % eventImages.length)
+                      }, 1300)
+                    }}
+                    className="absolute left-2 top-1/2 -translate-y-1/2 z-10 bg-background/80 hover:bg-background text-foreground p-2 rounded-full transition-all"
+                    aria-label="Previous slide"
+                  >
+                    <ChevronLeft className="w-5 h-5" />
+                  </button>
+                  <button
+                    onClick={() => {
+                      setEventSlide((prev) => (prev + 1) % eventImages.length)
+                      if (eventIntervalRef.current) clearInterval(eventIntervalRef.current)
+                      eventIntervalRef.current = setInterval(() => {
+                        setEventSlide((p) => (p + 1) % eventImages.length)
+                      }, 1300)
+                    }}
+                    className="absolute right-2 top-1/2 -translate-y-1/2 z-10 bg-background/80 hover:bg-background text-foreground p-2 rounded-full transition-all"
+                    aria-label="Next slide"
+                  >
+                    <ChevronRight className="w-5 h-5" />
+                  </button>
+
+                  {/* Slide indicators */}
+                  <div className="absolute bottom-3 left-1/2 -translate-x-1/2 flex gap-2 z-10">
+                    {eventImages.map((_, index) => (
+                      <button
+                        key={index}
+                        onClick={() => {
+                          setEventSlide(index)
+                          if (eventIntervalRef.current) clearInterval(eventIntervalRef.current)
+                          eventIntervalRef.current = setInterval(() => {
+                            setEventSlide((p) => (p + 1) % eventImages.length)
+                          }, 1300)
+                        }}
+                        className={`w-2 h-2 rounded-full transition-all ${
+                          index === eventSlide ? "bg-gold w-6" : "bg-background/60"
+                        }`}
+                        aria-label={`Go to slide ${index + 1}`}
+                      />
+                    ))}
+                  </div>
+                </div>
               </div>
 
               {/* Right side: Icon and text */}
