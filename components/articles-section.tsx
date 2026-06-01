@@ -2,7 +2,7 @@
 
 import { useEffect, useState, useRef } from "react"
 import { Button } from "@/components/ui/button"
-import { ArrowRight, Clock, Calendar, Newspaper } from "lucide-react"
+import { ArrowRight, Clock, Calendar, Newspaper, ChevronLeft, ChevronRight } from "lucide-react"
 import Image from "next/image"
 
 const categories = [
@@ -115,9 +115,18 @@ const articles = [
   },
 ]
 
+const pressImages = [
+  "/images/press-1-chennai-chronicle.jpg",
+  "/images/press-2-hindi-article.jpg",
+  "/images/press-3-indian-express.jpg",
+  "/images/press-4-wework-event.jpg",
+  "/images/press-5-bookends.jpg",
+]
+
 export default function ArticlesSection() {
   const [isVisible, setIsVisible] = useState(false)
   const [activeCategory, setActiveCategory] = useState("all")
+  const [currentSlide, setCurrentSlide] = useState(0)
   const sectionRef = useRef<HTMLElement>(null)
 
   useEffect(() => {
@@ -174,6 +183,95 @@ export default function ArticlesSection() {
             to inspire reflection and spark transformation.
           </p>
           <div className="w-24 h-1 gold-gradient mx-auto rounded-full mt-6" />
+        </div>
+
+        {/* Press Coverage Section */}
+        <div
+          className={`mb-16 transition-all duration-700 delay-200 ${
+            isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+          }`}
+        >
+          <div className="bg-card border border-border rounded-xl overflow-hidden premium-shadow">
+            <div className="grid md:grid-cols-3 gap-0">
+              {/* Left side: Icon and text */}
+              <div className="p-8 md:p-10 flex flex-col justify-center bg-secondary/20">
+                <div className="flex items-center gap-3 mb-4">
+                  <Newspaper className="w-8 h-8 text-gold" />
+                  <span className="text-sm font-bold uppercase tracking-wider text-gold">
+                    Press Coverage
+                  </span>
+                </div>
+                <h3 className="font-serif text-2xl md:text-3xl font-bold text-foreground mb-4">
+                  Featured in Major Publications
+                </h3>
+                <p className="text-muted-foreground leading-relaxed mb-6">
+                  Recognized by leading newspapers, magazines, and media outlets for expertise in workplace strategy, sustainability, and thought leadership.
+                </p>
+                <div className="grid grid-cols-2 gap-4 text-sm">
+                  <div>
+                    <p className="text-gold font-bold text-lg">20+</p>
+                    <p className="text-muted-foreground text-xs">Publications</p>
+                  </div>
+                  <div>
+                    <p className="text-gold font-bold text-lg">50+</p>
+                    <p className="text-muted-foreground text-xs">Articles & Features</p>
+                  </div>
+                </div>
+              </div>
+
+              {/* Right side: Press carousel */}
+              <div className="md:col-span-2 relative aspect-video md:aspect-auto">
+                {/* Carousel container */}
+                <div className="relative w-full h-full">
+                  {pressImages.map((image, index) => (
+                    <div
+                      key={index}
+                      className={`absolute inset-0 transition-opacity duration-500 ${
+                        index === currentSlide ? "opacity-100" : "opacity-0"
+                      }`}
+                    >
+                      <Image
+                        src={image}
+                        alt={`Press coverage ${index + 1}`}
+                        fill
+                        className="object-cover"
+                      />
+                    </div>
+                  ))}
+
+                  {/* Navigation arrows */}
+                  <button
+                    onClick={() => setCurrentSlide((prev) => (prev - 1 + pressImages.length) % pressImages.length)}
+                    className="absolute left-2 top-1/2 -translate-y-1/2 z-10 bg-background/80 hover:bg-background text-foreground p-2 rounded-full transition-all"
+                    aria-label="Previous slide"
+                  >
+                    <ChevronLeft className="w-5 h-5" />
+                  </button>
+                  <button
+                    onClick={() => setCurrentSlide((prev) => (prev + 1) % pressImages.length)}
+                    className="absolute right-2 top-1/2 -translate-y-1/2 z-10 bg-background/80 hover:bg-background text-foreground p-2 rounded-full transition-all"
+                    aria-label="Next slide"
+                  >
+                    <ChevronRight className="w-5 h-5" />
+                  </button>
+
+                  {/* Slide indicators */}
+                  <div className="absolute bottom-3 left-1/2 -translate-x-1/2 flex gap-2 z-10">
+                    {pressImages.map((_, index) => (
+                      <button
+                        key={index}
+                        onClick={() => setCurrentSlide(index)}
+                        className={`w-2 h-2 rounded-full transition-all ${
+                          index === currentSlide ? "bg-gold w-6" : "bg-background/60"
+                        }`}
+                        aria-label={`Go to slide ${index + 1}`}
+                      />
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
 
 {/* Events & Speaking Showcase */}
