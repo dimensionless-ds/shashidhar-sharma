@@ -167,7 +167,7 @@ export default function ArticlesSection() {
             Insights & Ideas
           </span>
           <h2 className="font-serif text-4xl md:text-5xl font-bold text-foreground mt-4 mb-6">
-            Articles & Essays
+            Articles & Press
           </h2>
           <p className="text-muted-foreground max-w-2xl mx-auto text-lg">
             Thoughts on leadership, creativity, and the human experience. Each piece is crafted
@@ -176,54 +176,7 @@ export default function ArticlesSection() {
           <div className="w-24 h-1 gold-gradient mx-auto rounded-full mt-6" />
         </div>
 
-        {/* Media Coverage Showcase */}
-        <div
-          className={`mb-16 transition-all duration-700 delay-200 ${
-            isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
-          }`}
-        >
-          <div className="bg-card border border-border rounded-xl overflow-hidden premium-shadow">
-            <div className="grid md:grid-cols-3 gap-0">
-              {/* Left side: Icon and text */}
-              <div className="p-8 md:p-10 flex flex-col justify-center bg-secondary/20">
-                <div className="flex items-center gap-3 mb-4">
-                  <Newspaper className="w-8 h-8 text-gold" />
-                  <span className="text-sm font-bold uppercase tracking-wider text-gold">
-                    Press Coverage
-                  </span>
-                </div>
-                <h3 className="font-serif text-2xl md:text-3xl font-bold text-foreground mb-4">
-                  Featured in Major Publications
-                </h3>
-                <p className="text-muted-foreground leading-relaxed mb-6">
-                  Recognized by leading newspapers, magazines, and media outlets for expertise in workplace strategy, sustainability, and thought leadership.
-                </p>
-                <div className="grid grid-cols-2 gap-4 text-sm">
-                  <div>
-                    <p className="text-gold font-bold text-lg">20+</p>
-                    <p className="text-muted-foreground text-xs">Publications</p>
-                  </div>
-                  <div>
-                    <p className="text-gold font-bold text-lg">50+</p>
-                    <p className="text-muted-foreground text-xs">Articles & Features</p>
-                  </div>
-                </div>
-              </div>
-
-              {/* Right side: Media collage */}
-              <div className="md:col-span-2 relative aspect-video md:aspect-auto">
-                <Image
-                  src="/images/media-coverage-collage.jpg"
-                  alt="Media coverage and press features"
-                  fill
-                  className="object-cover"
-                />
-              </div>
-            </div>
-          </div>
-        </div>
-
-        {/* Events & Speaking Showcase */}
+{/* Events & Speaking Showcase */}
         <div
           className={`mb-16 transition-all duration-700 delay-300 ${
             isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
