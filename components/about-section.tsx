@@ -164,56 +164,73 @@ export default function AboutSection() {
           </div>
         </div>
 
-        {/* Biography Section */}
+        {/* Biography Section with Image */}
         <div
           className={`transition-all duration-700 delay-400 mb-20 ${
             isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
           }`}
         >
-          <div className="max-w-3xl mx-auto">
-            <div className="relative mb-8">
-              <div className="absolute -left-4 top-0 w-1 h-full gold-gradient rounded-full" />
-              <h3 className="font-serif text-2xl md:text-3xl font-bold text-foreground mb-6 pl-4">
-                Exploring Work, Environment & the Human Intelligence
-              </h3>
+          <div className="grid lg:grid-cols-3 gap-12 items-start">
+            {/* Text Content */}
+            <div className="lg:col-span-2">
+              <div className="relative mb-8">
+                <div className="absolute -left-4 top-0 w-1 h-full gold-gradient rounded-full" />
+                <h3 className="font-serif text-2xl md:text-3xl font-bold text-foreground mb-6 pl-4">
+                  Exploring Work, Environment & the Human Intelligence
+                </h3>
+              </div>
+
+              <div className="space-y-6 text-muted-foreground leading-relaxed">
+                <p>
+                  Shashidhar Sharma is a thought leader working at the intersection of workplace transformation, 
+                  sustainability, cognitive wellbeing, and the future of human potential.
+                </p>
+                <p>
+                  As Country Manager - Advanced Workplace Associates (AWA India), he partners with global 
+                  organizations to rethink work and workplaces for an era shaped by AI, climate volatility, 
+                  cognitive overload, and accelerating change. His work focuses on Cognitive Workplace Strategy - 
+                  designing workplaces not merely for productivity, but as cognitive and emotional ecosystems that 
+                  support focus, creativity, wellbeing, and meaningful human connection.
+                </p>
+                <p>
+                  Over the last three decades, Shashi has led workplace strategy, organizational transformation, 
+                  and infrastructure initiatives for global organizations including Citigroup, Maersk, Alstom, 
+                  Michelin, Accenture, Caterpillar Inc. and more, drawing from leadership roles at Cushman &amp; 
+                  Wakefield, Voltas and IRCON.
+                </p>
+                <p>
+                  A civil engineer from University of Delhi, he has pursued advanced studies in sustainability, 
+                  ESG, wellbeing, and leadership through Indian Institute of Management Indore and is a certified 
+                  professional from Yale University, University of Michigan, and University of Pennsylvania.
+                </p>
+                <p>
+                  Beyond the corporate world, Shashi is also a bestselling author and reflective writer. His works 
+                  include &quot;Work and Workplace at the Edge of Intelligence&quot; (#1 on best seller list at Amazon – 
+                  Administrative Section @ May 2026), &quot;Songs of the Mist&quot; (Spiritual Fiction adjudged best seller 
+                  #29 at Amazon @ April 2016) and &quot;Haiku - Sound of One Hand Clapping&quot; (A well received art book @ 
+                  2020), while his blog Shadow Dancing With Mind reached millions of readers and was recognized 
+                  among India&apos;s leading blogs for three consecutive years.
+                </p>
+                <p>
+                  He is also the founder of the Green Footprint Trust and curator of initiatives such as WorkGreen 
+                  Conclaves, Cognitive Workplace Summits, and Sentient Sanctuary Summits - platforms exploring the 
+                  evolving relationship between work, environment, intelligence, and humanity.
+                </p>
+              </div>
             </div>
 
-            <div className="space-y-6 text-muted-foreground leading-relaxed">
-              <p>
-                Shashidhar Sharma is a thought leader working at the intersection of workplace transformation, 
-                sustainability, cognitive wellbeing, and the future of human potential.
-              </p>
-              <p>
-                As Country Manager - Advanced Workplace Associates (AWA India), he partners with global 
-                organizations to rethink work and workplaces for an era shaped by AI, climate volatility, 
-                cognitive overload, and accelerating change. His work focuses on Cognitive Workplace Strategy - 
-                designing workplaces not merely for productivity, but as cognitive and emotional ecosystems that 
-                support focus, creativity, wellbeing, and meaningful human connection.
-              </p>
-              <p>
-                Over the last three decades, Shashi has led workplace strategy, organizational transformation, 
-                and infrastructure initiatives for global organizations including Citigroup, Maersk, Alstom, 
-                Michelin, Accenture, Caterpillar Inc. and more, drawing from leadership roles at Cushman &amp; 
-                Wakefield, Voltas and IRCON.
-              </p>
-              <p>
-                A civil engineer from University of Delhi, he has pursued advanced studies in sustainability, 
-                ESG, wellbeing, and leadership through Indian Institute of Management Indore and is a certified 
-                professional from Yale University, University of Michigan, and University of Pennsylvania.
-              </p>
-              <p>
-                Beyond the corporate world, Shashi is also a bestselling author and reflective writer. His works 
-                include &quot;Work and Workplace at the Edge of Intelligence&quot; (#1 on best seller list at Amazon – 
-                Administrative Section @ May 2026), &quot;Songs of the Mist&quot; (Spiritual Fiction adjudged best seller 
-                #29 at Amazon @ April 2016) and &quot;Haiku - Sound of One Hand Clapping&quot; (A well received art book @ 
-                2020), while his blog Shadow Dancing With Mind reached millions of readers and was recognized 
-                among India&apos;s leading blogs for three consecutive years.
-              </p>
-              <p>
-                He is also the founder of the Green Footprint Trust and curator of initiatives such as WorkGreen 
-                Conclaves, Cognitive Workplace Summits, and Sentient Sanctuary Summits - platforms exploring the 
-                evolving relationship between work, environment, intelligence, and humanity.
-              </p>
+            {/* Author Portrait Image */}
+            <div className="lg:col-span-1">
+              <div className="relative aspect-[3/4] rounded-lg overflow-hidden premium-shadow-lg">
+                <Image
+                  src="/images/author-headshot.jpg"
+                  alt="Shashidhar Sharma - Professional Portrait"
+                  fill
+                  className="object-cover object-top"
+                  priority
+                />
+                <div className="absolute bottom-0 left-0 right-0 h-1 gold-gradient" />
+              </div>
             </div>
           </div>
         </div>
