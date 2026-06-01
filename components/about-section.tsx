@@ -224,65 +224,23 @@ export default function AboutSection() {
             isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
           }`}
         >
-          <h3 className="font-serif text-2xl md:text-3xl font-bold text-foreground text-center mb-16">
-            Timeline of the Journey
-          </h3>
+          <div className="border-4 border-gold rounded-lg p-6 mb-12 text-center">
+            <h3 className="font-serif text-2xl md:text-3xl font-bold text-foreground">
+              A Journey Through Time
+            </h3>
+          </div>
 
-          <div className="max-w-6xl mx-auto">
-            {/* Circular Timeline Icons */}
-            <div className="grid grid-cols-2 md:grid-cols-5 gap-8 mb-12 px-4">
-              {timeline.map((item, index) => {
-                const colors = [
-                  "bg-yellow-400",
-                  "bg-rose-400",
-                  "bg-teal-400",
-                  "bg-cyan-400",
-                  "bg-blue-500",
-                  "bg-purple-500",
-                  "bg-orange-400",
-                  "bg-green-400",
-                  "bg-indigo-500",
-                ]
-                const color = colors[index % colors.length]
-                
-                return (
-                  <div key={index} className="flex flex-col items-center">
-                    <div className={`${color} w-20 h-20 rounded-full flex items-center justify-center mb-4 shadow-lg transform transition-transform hover:scale-110`}>
-                      <span className="text-white font-serif text-lg font-bold text-center px-2">
-                        {item.year.split("-")[0]}
-                      </span>
-                    </div>
-                    <h4 className="font-serif font-bold text-foreground text-center text-sm h-10 flex items-center justify-center">
-                      {item.title.split(":")[0]}
-                    </h4>
-                  </div>
-                )
-              })}
-            </div>
-
-            {/* Connecting Timeline Line */}
-            <div className="relative px-4 mb-8">
-              <div className="hidden md:block h-1 bg-gradient-to-r from-yellow-400 via-teal-400 to-blue-500 rounded-full" />
-              <div className="md:hidden h-1 bg-border rounded-full" />
-            </div>
-
-            {/* Timeline Details */}
-            <div className="space-y-6">
-              {timeline.map((item, index) => (
-                <div
-                  key={index}
-                  className="bg-card border border-border rounded-lg p-6 hover:border-gold/50 transition-colors premium-shadow"
-                >
-                  <div className="flex gap-4">
-                    <span className="text-gold font-serif text-lg font-bold min-w-fit">{item.year}</span>
-                    <div>
-                      <h4 className="font-serif font-bold text-foreground mb-2">{item.title}</h4>
-                      <p className="text-muted-foreground text-sm leading-relaxed">{item.description}</p>
-                    </div>
-                  </div>
-                </div>
-              ))}
-            </div>
+          <div className="max-w-3xl mx-auto space-y-4">
+            {timeline.map((item, index) => (
+              <div
+                key={index}
+                className="bg-secondary/40 rounded-lg p-6 text-center hover:bg-secondary/60 transition-colors"
+              >
+                <p className="font-serif font-bold text-foreground text-lg mb-2">{item.year}</p>
+                <p className="font-medium text-foreground mb-1">{item.title}</p>
+                <p className="text-muted-foreground text-sm">{item.description}</p>
+              </div>
+            ))}
           </div>
         </div>
       </div>
