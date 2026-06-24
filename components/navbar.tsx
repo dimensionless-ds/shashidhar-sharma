@@ -15,6 +15,11 @@ const navItems = [
   { name: "Contact", href: "#contact" },
 ]
 
+const footerItems = [
+  { name: "Privacy Policy", href: "/privacy" },
+  { name: "Terms of Service", href: "/terms" },
+]
+
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false)
   const [isScrolled, setIsScrolled] = useState(false)
