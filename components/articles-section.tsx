@@ -2,7 +2,7 @@
 
 import { useEffect, useState, useRef } from "react"
 import { Button } from "@/components/ui/button"
-import { ArrowRight, Clock, Calendar, Newspaper, ChevronLeft, ChevronRight } from "lucide-react"
+import { ArrowRight, Clock, Calendar, Newspaper, ChevronLeft, ChevronRight, Briefcase, TrendingUp, Leaf, Brain, Users, Zap } from "lucide-react"
 import Image from "next/image"
 
 const categories = [
@@ -24,6 +24,7 @@ const articles = [
     date: "2024",
     featured: true,
     link: "https://www.linkedin.com/pulse/from-skillsets-mindsets-rewiring-young-generation-age-sharma-mg4yc/",
+    icon: Zap,
   },
   {
     id: 2,
@@ -35,6 +36,7 @@ const articles = [
     date: "2024",
     featured: false,
     link: "https://www.linkedin.com/feed/update/urn:li:activity:7445100478763315200/",
+    icon: Briefcase,
   },
   {
     id: 3,
@@ -46,6 +48,7 @@ const articles = [
     date: "2024",
     featured: false,
     link: "https://www.linkedin.com/feed/update/urn:li:activity:7446957687583600642/",
+    icon: TrendingUp,
   },
   {
     id: 4,
@@ -57,6 +60,7 @@ const articles = [
     date: "2024",
     featured: false,
     link: "https://www.linkedin.com/feed/update/urn:li:activity:7447230019380314112/",
+    icon: Users,
   },
   {
     id: 5,
@@ -68,6 +72,7 @@ const articles = [
     date: "2024",
     featured: false,
     link: "https://www.linkedin.com/feed/update/urn:li:activity:7447508211554902016/",
+    icon: Leaf,
   },
   {
     id: 6,
@@ -79,6 +84,7 @@ const articles = [
     date: "2024",
     featured: false,
     link: "https://www.linkedin.com/feed/update/urn:li:activity:7447957949261553665/",
+    icon: Brain,
   },
   {
     id: 7,
@@ -90,6 +96,7 @@ const articles = [
     date: "2024",
     featured: false,
     link: "https://www.linkedin.com/feed/update/urn:li:activity:7447959103840129025/",
+    icon: Zap,
   },
   {
     id: 8,
@@ -101,6 +108,7 @@ const articles = [
     date: "2024",
     featured: false,
     link: "https://www.linkedin.com/feed/update/urn:li:activity:7448304055442915328/",
+    icon: Leaf,
   },
   {
     id: 9,
@@ -112,6 +120,7 @@ const articles = [
     date: "2024",
     featured: false,
     link: "https://www.linkedin.com/feed/update/urn:li:activity:7448792724130140160/",
+    icon: Leaf,
   },
 ]
 
@@ -406,48 +415,56 @@ export default function ArticlesSection() {
 
         {/* Articles Grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {regularArticles.map((article, index) => (
-            <a
-              key={article.id}
-              href={article.link}
-              target="_blank"
-              rel="noopener noreferrer"
-              className={`group bg-card border border-border rounded-xl p-6 hover:border-gold/30 transition-all duration-300 cursor-pointer premium-shadow block ${
-                isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
-              }`}
-              style={{ transitionDelay: `${(index + 4) * 100}ms` }}
-            >
-              {/* Category and meta */}
-              <div className="flex items-center justify-between mb-4">
-                <span className="px-3 py-1 bg-secondary rounded-full text-xs font-medium text-muted-foreground capitalize">
-                  {article.category}
-                </span>
-                <span className="text-xs text-muted-foreground">{article.date}</span>
-              </div>
+          {regularArticles.map((article, index) => {
+            const IconComponent = article.icon
+            return (
+              <a
+                key={article.id}
+                href={article.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={`group bg-card border border-border rounded-xl p-6 hover:border-gold/30 transition-all duration-300 cursor-pointer premium-shadow block ${
+                  isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+                }`}
+                style={{ transitionDelay: `${(index + 4) * 100}ms` }}
+              >
+                {/* Icon */}
+                <div className="mb-4">
+                  <IconComponent className="w-8 h-8 text-red-600 group-hover:scale-110 transition-transform duration-300" />
+                </div>
 
-              {/* Title */}
-              <h3 className="font-serif text-xl font-bold text-foreground mb-3 group-hover:text-gold transition-colors line-clamp-2">
-                {article.title}
-              </h3>
+                {/* Category and meta */}
+                <div className="flex items-center justify-between mb-4">
+                  <span className="px-3 py-1 bg-secondary rounded-full text-xs font-medium text-muted-foreground capitalize">
+                    {article.category}
+                  </span>
+                  <span className="text-xs text-muted-foreground">{article.date}</span>
+                </div>
 
-              {/* Excerpt */}
-              <p className="text-muted-foreground text-sm leading-relaxed mb-4 line-clamp-3">
-                {article.excerpt}
-              </p>
+                {/* Title */}
+                <h3 className="font-serif text-xl font-bold text-foreground mb-3 group-hover:text-gold transition-colors line-clamp-2">
+                  {article.title}
+                </h3>
 
-              {/* Footer */}
-              <div className="flex items-center justify-between pt-4 border-t border-border">
-                <span className="text-xs text-muted-foreground flex items-center gap-1">
-                  <Clock className="w-3 h-3" />
-                  {article.readTime}
-                </span>
-                <span className="inline-flex items-center text-gold text-sm font-medium group-hover:gap-2 gap-1 transition-all">
-                  Read on LinkedIn
-                  <ArrowRight className="w-3 h-3" />
-                </span>
-              </div>
-            </a>
-          ))}
+                {/* Excerpt */}
+                <p className="text-muted-foreground text-sm leading-relaxed mb-4 line-clamp-3">
+                  {article.excerpt}
+                </p>
+
+                {/* Footer */}
+                <div className="flex items-center justify-between pt-4 border-t border-border">
+                  <span className="text-xs text-muted-foreground flex items-center gap-1">
+                    <Clock className="w-3 h-3" />
+                    {article.readTime}
+                  </span>
+                  <span className="inline-flex items-center text-gold text-sm font-medium group-hover:gap-2 gap-1 transition-all">
+                    Read on LinkedIn
+                    <ArrowRight className="w-3 h-3" />
+                  </span>
+                </div>
+              </a>
+            )
+          })}
         </div>
 
         {/* View All CTA */}
