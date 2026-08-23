@@ -12,7 +12,7 @@ export default function HeroSection() {
   return (
     <section
       id="home"
-      className="min-h-screen relative flex items-center justify-center overflow-hidden bg-background"
+      className="min-h-screen relative flex items-center justify-center overflow-hidden bg-background pt-28 lg:pt-32"
     >
       {/* Subtle background pattern */}
       <div className="absolute inset-0 opacity-[0.02]">

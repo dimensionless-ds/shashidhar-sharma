@@ -19,7 +19,7 @@ export default function Home() {
           <ProfessionalBadges />
         </div>
       </div>
-      <div className="pt-24" />
+      <div className="h-36 sm:h-32" aria-hidden="true" />
       <HeroSection />
       <AboutSection />
       <BooksSection />

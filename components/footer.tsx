@@ -71,7 +71,7 @@ export default function Footer() {
           {/* Quick Links */}
           <div>
             <h4 className="font-serif text-lg font-bold text-background mb-6">Quick Links</h4>
-            <ul className="space-y-3">
+            <ul className="flex flex-col gap-3">
               {navLinks.map((link) => (
                 <li key={link.name}>
                   <button
@@ -88,7 +88,7 @@ export default function Footer() {
           {/* Resources */}
           <div>
             <h4 className="font-serif text-lg font-bold text-background mb-6">Resources</h4>
-            <ul className="space-y-3">
+            <ul className="flex flex-col gap-3">
               <li>
                 <a href="#" className="text-background/70 hover:text-gold transition-colors text-sm">
                   Media Kit
