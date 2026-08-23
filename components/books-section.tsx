@@ -190,7 +190,7 @@ export default function BooksSection() {
         </div>
 
         {/* Books Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6 lg:gap-7">
           {books.map((book, index) => (
             <div
               key={book.id}
@@ -203,12 +203,12 @@ export default function BooksSection() {
             >
               <div className="bg-card border border-border rounded-xl overflow-hidden premium-shadow hover:premium-shadow-lg transition-all duration-300 hover:border-gold/30 h-full flex flex-col">
                 {/* Book Cover */}
-                <div className="relative aspect-[3/4] overflow-hidden bg-secondary">
+                <div className="relative aspect-[3/4] overflow-hidden bg-secondary p-3 sm:p-4">
                   <Image
                     src={book.image}
                     alt={book.title}
                     fill
-                    className={`object-cover transition-transform duration-500 ${
+                    className={`object-contain transition-transform duration-500 ${
                       hoveredBook === book.id ? "scale-105" : "scale-100"
                     }`}
                   />
@@ -234,7 +234,7 @@ export default function BooksSection() {
                 </div>
 
                 {/* Book Info */}
-                <div className="p-6 flex flex-col flex-grow">
+                <div className="p-4 sm:p-5 lg:p-6 flex flex-col flex-grow">
                   <div className="flex items-center gap-2 mb-3">
                     {book.reviews > 0 ? (
                       <>
