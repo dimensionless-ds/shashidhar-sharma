@@ -12,7 +12,7 @@ export default function HeroSection() {
   return (
     <section
       id="home"
-      className="min-h-0 lg:min-h-screen relative flex items-start lg:items-center justify-center overflow-hidden bg-background pt-0 sm:pt-8 lg:pt-16"
+      className="min-h-0 lg:min-h-screen relative flex items-start lg:items-center justify-center overflow-hidden bg-background pt-0 sm:pt-4 lg:pt-12"
     >
       {/* Subtle background pattern */}
       <div className="absolute inset-0 opacity-[0.02]">
@@ -93,7 +93,7 @@ export default function HeroSection() {
               {/* Main image container */}
               <div className="relative w-full max-w-72 sm:max-w-80 md:max-w-96 aspect-square rounded-lg overflow-hidden premium-shadow-lg mx-auto lg:mx-0">
                 <Image
-                  src="/images/author-headshot.jpg"
+                  src="/images/hero-speaking.jpg"
                   alt="Shashidhar Sharma - Author and Speaker"
                   fill
                   className="object-cover object-center"

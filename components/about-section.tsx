@@ -2,7 +2,7 @@
 
 import { useEffect, useState, useRef } from "react"
 import Image from "next/image"
-import { Award, BookOpen, Users, Globe, ChevronLeft, ChevronRight } from "lucide-react"
+import { Award, BookOpen, Users, Globe } from "lucide-react"
 
 const timeline = [
   {
@@ -70,8 +70,6 @@ const achievements = [
 
 export default function AboutSection() {
   const [isVisible, setIsVisible] = useState(false)
-  const [activeTimelineIndex, setActiveTimelineIndex] = useState(0)
-  const [isTimelinePaused, setIsTimelinePaused] = useState(false)
   const sectionRef = useRef<HTMLElement>(null)
 
   useEffect(() => {
@@ -96,24 +94,6 @@ export default function AboutSection() {
       clearTimeout(timer)
     }
   }, [])
-
-  useEffect(() => {
-    if (isTimelinePaused || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return
-
-    const interval = window.setInterval(() => {
-      setActiveTimelineIndex((current) => (current + 1) % timeline.length)
-    }, 5000)
-
-    return () => window.clearInterval(interval)
-  }, [isTimelinePaused])
-
-  const activeTimelineItem = timeline[activeTimelineIndex]
-
-  const moveTimeline = (direction: 1 | -1) => {
-    setActiveTimelineIndex(
-      (current) => (current + direction + timeline.length) % timeline.length
-    )
-  }
 
   return (
     <section ref={sectionRef} id="about" className="py-24 bg-secondary/30 relative">
@@ -221,83 +201,6 @@ export default function AboutSection() {
           </div>
         </div>
 
-        {/* Timeline of the Journey */}
-        <div
-          className={`transition-all duration-700 delay-600 ${
-            isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
-          }`}
-        >
-          <div             className="border-4 border-gold rounded-lg p-4 sm:p-6 mb-5 sm:mb-8 text-center">
-            <h3 className="font-serif text-2xl md:text-3xl font-bold text-foreground">
-              A Journey Through Time
-            </h3>
-          </div>
-
-          <div
-            className="max-w-4xl mx-auto"
-            onMouseEnter={() => setIsTimelinePaused(true)}
-            onMouseLeave={() => setIsTimelinePaused(false)}
-            onFocus={() => setIsTimelinePaused(true)}
-            onBlur={(event) => {
-              if (!event.currentTarget.contains(event.relatedTarget as Node | null)) {
-                setIsTimelinePaused(false)
-              }
-            }}
-          >
-            <article
-              key={activeTimelineIndex}
-              className="bg-secondary/40 rounded-xl p-8 md:p-12 text-center min-h-[280px] flex flex-col justify-center animate-fade-in"
-              aria-live="polite"
-            >
-              <p className="font-serif font-bold text-gold text-2xl mb-4">{activeTimelineItem.year}</p>
-              <p className="font-medium text-foreground text-xl md:text-2xl mb-4 text-balance">
-                {activeTimelineItem.title}
-              </p>
-              <p className="text-muted-foreground leading-relaxed max-w-2xl mx-auto">
-                {activeTimelineItem.description}
-              </p>
-            </article>
-
-            <div className="flex flex-col sm:flex-row items-center justify-between gap-6 mt-8">
-              <p className="text-sm text-muted-foreground font-mono" aria-live="polite">
-                {String(activeTimelineIndex + 1).padStart(2, "0")} / {String(timeline.length).padStart(2, "0")}
-              </p>
-              <div className="flex items-center gap-2" role="tablist" aria-label="Journey milestones">
-                {timeline.map((item, index) => (
-                  <button
-                    key={item.year}
-                    type="button"
-                    role="tab"
-                    aria-selected={index === activeTimelineIndex}
-                    aria-label={`Show ${item.year}: ${item.title}`}
-                    onClick={() => setActiveTimelineIndex(index)}
-                    className={`h-2 rounded-full transition-all ${
-                      index === activeTimelineIndex ? "w-8 bg-gold" : "w-2 bg-muted-foreground/40 hover:bg-gold/60"
-                    }`}
-                  />
-                ))}
-              </div>
-              <div className="flex items-center gap-2">
-                <button
-                  type="button"
-                  onClick={() => moveTimeline(-1)}
-                  aria-label="Previous milestone"
-                  className="rounded-full border border-border p-3 text-foreground transition-colors hover:border-gold hover:text-gold focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
-                >
-                  <ChevronLeft className="h-5 w-5" aria-hidden="true" />
-                </button>
-                <button
-                  type="button"
-                  onClick={() => moveTimeline(1)}
-                  aria-label="Next milestone"
-                  className="rounded-full bg-gold p-3 text-primary-foreground transition-transform hover:scale-105 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
-                >
-                  <ChevronRight className="h-5 w-5" aria-hidden="true" />
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
       </div>
     </section>
   )

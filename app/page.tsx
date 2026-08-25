@@ -2,6 +2,7 @@ import Navbar from "@/components/navbar"
 import ProfessionalBadges from "@/components/professional-badges"
 import HeroSection from "@/components/hero-section"
 import AboutSection from "@/components/about-section"
+import JourneyTimeline from "@/components/journey-timeline"
 import BooksSection from "@/components/books-section"
 import WorkWorkplaceSection from "@/components/work-workplace-section"
 import PodcastSection from "@/components/podcast-section"
@@ -14,7 +15,7 @@ export default function Home() {
   return (
     <main className="min-h-screen bg-background">
       <Navbar />
-      <div className="relative mt-20 md:fixed md:top-20 md:mt-0 left-0 right-0 z-40 bg-background/95 backdrop-blur-md border-b border-border py-4">
+      <div className="relative mt-16 md:fixed md:top-20 md:mt-0 left-0 right-0 z-40 bg-background/95 backdrop-blur-md border-b border-border py-4">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <ProfessionalBadges />
         </div>
@@ -28,6 +29,7 @@ export default function Home() {
       <ArticlesSection />
       <ContactSection />
       <Footer />
+      <JourneyTimeline />
       <AskShashiChatbot />
     </main>
   )
