@@ -3,6 +3,7 @@
 import { useEffect, useState, useRef } from "react"
 import Image from "next/image"
 import { Award, BookOpen, Users, Globe } from "lucide-react"
+import JourneyTimeline from "@/components/journey-timeline"
 
 const timeline = [
   {
@@ -143,6 +144,10 @@ export default function AboutSection() {
                 <p>
                   A civil engineer with advanced studies from IIM Indore, Yale, Michigan, and Penn, he is also a bestselling author (<em>Work and Workplace at the Edge of Intelligence</em>), blogger (<em>Shadow Dancing With Mind</em>), and founder of the Green Footprint Trust.
                 </p>
+              </div>
+
+              <div className="mt-10 lg:mt-12">
+                <JourneyTimeline compact />
               </div>
             </div>
 

@@ -15,7 +15,7 @@ const timeline = [
   ["2026", "Work & Workplace at the Edge of Intelligence", "Published breakthrough work and currently leads workplace transformation initiatives globally as Country Manager – AWA India."],
 ] as const
 
-export default function JourneyTimeline() {
+export default function JourneyTimeline({ compact = false }: { compact?: boolean }) {
   const [active, setActive] = useState(0)
   const [paused, setPaused] = useState(false)
   const item = timeline[active]
@@ -27,13 +27,13 @@ export default function JourneyTimeline() {
   }, [paused])
 
   return (
-    <section className="bg-background py-12 sm:py-16" aria-labelledby="journey-title">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="mb-6 rounded-lg border-2 border-gold p-4 text-center sm:mb-8 sm:p-6">
+    <section className={compact ? "bg-background" : "bg-background py-12 sm:py-16"} aria-labelledby="journey-title">
+      <div className={compact ? "mx-auto max-w-4xl" : "mx-auto max-w-7xl px-4 sm:px-6 lg:px-8"}>
+        <div className={compact ? "mb-4 rounded-lg border-2 border-gold p-3 text-center" : "mb-6 rounded-lg border-2 border-gold p-4 text-center sm:mb-8 sm:p-6"}>
           <h2 id="journey-title" className="font-serif text-2xl font-bold text-foreground md:text-3xl">A Journey Through Time</h2>
         </div>
         <div className="mx-auto max-w-4xl" onMouseEnter={() => setPaused(true)} onMouseLeave={() => setPaused(false)} onFocus={() => setPaused(true)} onBlur={(event) => { if (!event.currentTarget.contains(event.relatedTarget as Node | null)) setPaused(false) }}>
-          <article key={active} className="flex min-h-[240px] flex-col justify-center rounded-xl bg-secondary/40 p-6 text-center animate-fade-in sm:min-h-[280px] sm:p-12" aria-live="polite">
+          <article key={active} className={compact ? "flex min-h-[190px] flex-col justify-center rounded-xl bg-secondary/40 p-5 text-center animate-fade-in" : "flex min-h-[240px] flex-col justify-center rounded-xl bg-secondary/40 p-6 text-center animate-fade-in sm:min-h-[280px] sm:p-12"} aria-live="polite">
             <p className="mb-3 font-serif text-2xl font-bold text-gold">{item[0]}</p>
             <p className="mb-3 text-xl font-medium text-foreground text-balance md:text-2xl">{item[1]}</p>
             <p className="mx-auto max-w-2xl leading-relaxed text-muted-foreground">{item[2]}</p>

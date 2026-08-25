@@ -2,7 +2,6 @@ import Navbar from "@/components/navbar"
 import ProfessionalBadges from "@/components/professional-badges"
 import HeroSection from "@/components/hero-section"
 import AboutSection from "@/components/about-section"
-import JourneyTimeline from "@/components/journey-timeline"
 import BooksSection from "@/components/books-section"
 import WorkWorkplaceSection from "@/components/work-workplace-section"
 import PodcastSection from "@/components/podcast-section"
@@ -28,7 +27,6 @@ export default function Home() {
       <PodcastSection />
       <ArticlesSection />
       <ContactSection />
-      <JourneyTimeline />
       <Footer />
       <AskShashiChatbot />
     </main>
