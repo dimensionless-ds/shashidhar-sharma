@@ -2,9 +2,26 @@
 
 import Image from "next/image"
 import { Button } from "@/components/ui/button"
-import { ChevronDown, BookOpen, Mic } from "lucide-react"
+import { ChevronDown, BookOpen, Mic, ChevronLeft, ChevronRight } from "lucide-react"
+import { useEffect, useState } from "react"
+
+const haikus = [
+  ["No fear of dying", "It is beauty of being", "Emptiness of life"],
+  ["O beautiful life", "Be the sea - Calm, receiving", "Cleansing and holding"],
+  ["Moss, grass creeps upon", "The Ancient pond, winter moon", "Hides behind snow veils"],
+  ["Her hands outstretched - wings", "Runs in meadow - Autumn leaves", "Butterflies in wake"],
+  ["Red sky and green earth", "Mate; Pregnant with clouds, Monsoon", "Delivers in rains"],
+] as const
 
 export default function HeroSection() {
+  const [haikuIndex, setHaikuIndex] = useState(0)
+
+  useEffect(() => {
+    const interval = window.setInterval(() => setHaikuIndex((current) => (current + 1) % haikus.length), 12 * 60 * 60 * 1000)
+    return () => window.clearInterval(interval)
+  }, [])
+
+  const haiku = haikus[haikuIndex]
   const scrollToSection = (id: string) => {
     document.getElementById(id)?.scrollIntoView({ behavior: "smooth" })
   }
@@ -12,7 +29,7 @@ export default function HeroSection() {
   return (
     <section
       id="home"
-      className="min-h-screen relative flex items-center justify-center overflow-hidden bg-background pt-28 lg:pt-32"
+      className="min-h-0 lg:min-h-screen relative flex items-start lg:items-center justify-center overflow-hidden bg-background pt-0 sm:pt-4 lg:pt-12"
     >
       {/* Subtle background pattern */}
       <div className="absolute inset-0 opacity-[0.02]">
@@ -27,8 +44,8 @@ export default function HeroSection() {
       {/* Gold accent line */}
       <div className="absolute top-0 left-0 right-0 h-1 gold-gradient" />
 
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-24 pb-16">
-        <div className="grid lg:grid-cols-2 gap-4 lg:gap-8 items-start">
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 sm:pt-12 pb-12 lg:pt-16 lg:pb-16">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-8 items-start">
           {/* Content */}
           <div className="text-center lg:text-left order-2 lg:order-1">
             {/* Headline */}
@@ -91,9 +108,9 @@ export default function HeroSection() {
           <div className="order-1 lg:order-2">
             <div className="flex flex-col gap-6">
               {/* Main image container */}
-              <div className="relative w-72 sm:w-80 md:w-96 aspect-square rounded-lg overflow-hidden premium-shadow-lg mx-auto lg:mx-0">
+              <div className="relative w-full max-w-72 sm:max-w-80 md:max-w-96 aspect-square rounded-lg overflow-hidden premium-shadow-lg mx-auto lg:mx-0">
                 <Image
-                  src="/images/author-hero.jpg"
+                  src="/images/hero-speaking.jpg"
                   alt="Shashidhar Sharma - Author and Speaker"
                   fill
                   className="object-cover object-center"
@@ -103,12 +120,18 @@ export default function HeroSection() {
                 <div className="absolute bottom-0 left-0 right-0 h-1 gold-gradient" />
               </div>
 
-              {/* Floating quote card */}
-              <div className="bg-card border border-border rounded-lg p-6 sm:p-8 premium-shadow mx-auto lg:mx-0">
-                <p className="font-serif text-lg sm:text-xl lg:text-2xl italic text-foreground leading-relaxed text-pretty">
-                  &quot;The silence between thoughts is the space where creativity is born.&quot;
-                </p>
-                <p className="text-sm text-gold mt-3 font-medium">- Songs of the Mist @2016</p>
+              {/* Haiku carousel */}
+              <div className="relative bg-card border border-border rounded-lg p-5 pb-6 sm:p-8 premium-shadow mx-auto lg:mx-0 w-full" aria-live="polite">
+                <div className="min-h-[132px] flex flex-col justify-center sm:pr-10">
+                  {haiku.map((line) => (
+                    <p key={line} className="font-serif text-lg sm:text-xl italic text-foreground leading-relaxed text-pretty">{line}</p>
+                  ))}
+                </div>
+                <p className="text-sm text-gold mt-3 font-medium">— Haiku – Life, Love &amp; Living</p>
+                <div className="absolute right-4 bottom-4 flex gap-1">
+                  <button type="button" onClick={() => setHaikuIndex((haikuIndex - 1 + haikus.length) % haikus.length)} aria-label="Previous haiku" className="rounded-full border border-border p-1.5 text-muted-foreground hover:text-gold"><ChevronLeft className="h-4 w-4" /></button>
+                  <button type="button" onClick={() => setHaikuIndex((haikuIndex + 1) % haikus.length)} aria-label="Next haiku" className="rounded-full bg-gold p-1.5 text-primary-foreground"><ChevronRight className="h-4 w-4" /></button>
+                </div>
               </div>
             </div>
           </div>

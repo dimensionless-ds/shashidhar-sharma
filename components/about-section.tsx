@@ -3,6 +3,7 @@
 import { useEffect, useState, useRef } from "react"
 import Image from "next/image"
 import { Award, BookOpen, Users, Globe } from "lucide-react"
+import JourneyTimeline from "@/components/journey-timeline"
 
 const timeline = [
   {
@@ -104,7 +105,7 @@ export default function AboutSection() {
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div
-          className={`text-center mb-16 transition-all duration-700 ${
+          className={`text-center mb-10 transition-all duration-700 ${
             isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
           }`}
         >
@@ -119,7 +120,7 @@ export default function AboutSection() {
 
         {/* Biography Section with Image */}
         <div
-          className={`transition-all duration-700 delay-200 mb-20 ${
+            className={`transition-all duration-700 delay-200 mb-12 ${
             isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
           }`}
         >
@@ -135,40 +136,18 @@ export default function AboutSection() {
 
               <div className="space-y-6 text-muted-foreground leading-relaxed">
                 <p>
-                  Shashidhar Sharma is a thought leader working at the intersection of workplace transformation, 
-                  sustainability, cognitive wellbeing, and the future of human potential.
+                  Shashidhar Sharma is Country Manager at AWA India, where he helps global organizations rethink workplaces for the AI era through Cognitive Workplace Strategy — designing spaces that support focus, wellbeing, and human connection.
                 </p>
                 <p>
-                  As Country Manager - Advanced Workplace Associates (AWA India), he partners with global 
-                  organizations to rethink work and workplaces for an era shaped by AI, climate volatility, 
-                  cognitive overload, and accelerating change. His work focuses on Cognitive Workplace Strategy - 
-                  designing workplaces not merely for productivity, but as cognitive and emotional ecosystems that 
-                  support focus, creativity, wellbeing, and meaningful human connection.
+                  Over 30 years, he has led workplace and transformation initiatives for Citigroup, Maersk, Michelin, Accenture, and Caterpillar, among others.
                 </p>
                 <p>
-                  Over the last three decades, Shashi has led workplace strategy, organizational transformation, 
-                  and infrastructure initiatives for global organizations including Citigroup, Maersk, Alstom, 
-                  Michelin, Accenture, Caterpillar Inc. and more, drawing from leadership roles at Cushman &amp; 
-                  Wakefield, Voltas and IRCON.
+                  A civil engineer with advanced studies from IIM Indore, Yale, Michigan, and Penn, he is also a bestselling author (<em>Work and Workplace at the Edge of Intelligence</em>), blogger (<em>Shadow Dancing With Mind</em>), and founder of the Green Footprint Trust.
                 </p>
-                <p>
-                  A civil engineer from University of Delhi, he has pursued advanced studies in sustainability, 
-                  ESG, wellbeing, and leadership through Indian Institute of Management Indore and is a certified 
-                  professional from Yale University, University of Michigan, and University of Pennsylvania.
-                </p>
-                <p>
-                  Beyond the corporate world, Shashi is also a bestselling author and reflective writer. His works 
-                  include &quot;Work and Workplace at the Edge of Intelligence&quot; (#1 on best seller list at Amazon – 
-                  Administrative Section @ May 2026), &quot;Songs of the Mist&quot; (Spiritual Fiction adjudged best seller 
-                  #29 at Amazon @ April 2016) and &quot;Haiku - Sound of One Hand Clapping&quot; (A well received art book @ 
-                  2020), while his blog Shadow Dancing With Mind reached millions of readers and was recognized 
-                  among India&apos;s leading blogs for three consecutive years.
-                </p>
-                <p>
-                  He is also the founder of the Green Footprint Trust and curator of initiatives such as WorkGreen 
-                  Conclaves, Cognitive Workplace Summits, and Sentient Sanctuary Summits - platforms exploring the 
-                  evolving relationship between work, environment, intelligence, and humanity.
-                </p>
+              </div>
+
+              <div className="mt-10 lg:mt-12">
+                <JourneyTimeline compact />
               </div>
             </div>
 
@@ -227,31 +206,6 @@ export default function AboutSection() {
           </div>
         </div>
 
-        {/* Timeline of the Journey */}
-        <div
-          className={`transition-all duration-700 delay-600 ${
-            isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
-          }`}
-        >
-          <div className="border-4 border-gold rounded-lg p-6 mb-12 text-center">
-            <h3 className="font-serif text-2xl md:text-3xl font-bold text-foreground">
-              A Journey Through Time
-            </h3>
-          </div>
-
-          <div className="max-w-3xl mx-auto space-y-4">
-            {timeline.map((item, index) => (
-              <div
-                key={index}
-                className="bg-secondary/40 rounded-lg p-6 text-center hover:bg-secondary/60 transition-colors"
-              >
-                <p className="font-serif font-bold text-foreground text-lg mb-2">{item.year}</p>
-                <p className="font-medium text-foreground mb-1">{item.title}</p>
-                <p className="text-muted-foreground text-sm">{item.description}</p>
-              </div>
-            ))}
-          </div>
-        </div>
       </div>
     </section>
   )
