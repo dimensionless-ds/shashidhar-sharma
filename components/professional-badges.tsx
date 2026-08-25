@@ -11,7 +11,7 @@ export default function ProfessionalBadges() {
   ]
 
   return (
-    <div className="flex items-center justify-center gap-2 flex-wrap">
+    <div className="flex items-center justify-start gap-2 overflow-x-auto px-1 pb-1 sm:flex-wrap sm:justify-center sm:overflow-visible">
       {badges.map((badge, index) => (
         <div
           key={index}
