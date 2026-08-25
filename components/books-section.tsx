@@ -3,7 +3,7 @@
 import { useEffect, useState, useRef } from "react"
 import Image from "next/image"
 import { Button } from "@/components/ui/button"
-import { ShoppingCart, BookOpen, Star, ArrowRight } from "lucide-react"
+import { ShoppingCart, BookOpen, Star, ArrowRight, ChevronLeft, ChevronRight } from "lucide-react"
 import { RazorpayPayment } from "@/components/razorpay-payment"
 
 const books = [
@@ -139,6 +139,7 @@ export default function BooksSection() {
   const [isVisible, setIsVisible] = useState(false)
   const [hoveredBook, setHoveredBook] = useState<number | null>(null)
   const [paymentSuccess, setPaymentSuccess] = useState<number | null>(null)
+  const [activeBook, setActiveBook] = useState(0)
   const sectionRef = useRef<HTMLElement>(null)
 
   useEffect(() => {
@@ -189,8 +190,38 @@ export default function BooksSection() {
           <div className="w-24 h-1 gold-gradient mx-auto rounded-full mt-6" />
         </div>
 
+        {/* Mobile book carousel */}
+        <div className="md:hidden" aria-live="polite">
+          {(() => {
+            const book = books[activeBook]
+            return (
+              <article className="overflow-hidden rounded-xl border border-border bg-card premium-shadow">
+                <div className="relative aspect-[3/4] bg-secondary p-4">
+                  <Image src={book.image} alt={book.title} fill className="object-contain" />
+                  {book.bestseller && <span className="absolute left-4 top-4 rounded-full gold-gradient px-3 py-1 text-xs font-bold text-foreground">BESTSELLER</span>}
+                </div>
+                <div className="flex flex-col gap-3 p-5">
+                  <div className="flex items-center gap-2 text-sm text-muted-foreground"><span className="text-gold">★★★★★</span><span>{book.rating} ({book.reviews} reviews)</span></div>
+                  <h3 className="font-serif text-2xl font-bold text-foreground">{book.title}</h3>
+                  <p className="text-sm text-gold">{book.subtitle}</p>
+                  <p className="leading-relaxed text-muted-foreground">{book.description}</p>
+                  <div className="flex items-center justify-between border-t border-border pt-4"><span className="font-serif text-2xl font-bold text-foreground">{book.price}</span><Button variant="outline" size="sm">Read Sample</Button></div>
+                  <RazorpayPayment amount={parseInt(book.price.replace(/[^\d]/g, ""))} description={`Purchase: ${book.title}`} type="book" onSuccess={() => setPaymentSuccess(book.id)} />
+                </div>
+              </article>
+            )
+          })()}
+          <div className="mt-5 flex items-center justify-between">
+            <span className="font-mono text-sm text-muted-foreground">{activeBook + 1} / {books.length}</span>
+            <div className="flex items-center gap-2">
+              <Button variant="outline" size="icon" aria-label="Previous book" onClick={() => setActiveBook((activeBook - 1 + books.length) % books.length)}><ChevronLeft /></Button>
+              <Button size="icon" aria-label="Next book" onClick={() => setActiveBook((activeBook + 1) % books.length)}><ChevronRight /></Button>
+            </div>
+          </div>
+        </div>
+
         {/* Books Grid */}
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6 lg:gap-7">
+        <div className="hidden grid-cols-2 gap-4 md:grid sm:gap-6 lg:grid-cols-4 lg:gap-7">
           {books.map((book, index) => (
             <div
               key={book.id}

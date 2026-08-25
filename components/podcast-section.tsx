@@ -206,7 +206,7 @@ export default function PodcastSection() {
                     <img
                       src={episode.thumbnail}
                       alt={episode.title}
-                      className="w-full h-full object-cover"
+                      className="max-w-full w-full h-full object-cover"
                     />
                     <div className="absolute inset-0 flex items-center justify-center bg-black/30 group-hover:bg-black/50 transition-colors">
                       <div className="w-10 h-10 rounded-full bg-gold/90 group-hover:bg-gold flex items-center justify-center transition-colors">

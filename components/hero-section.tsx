@@ -121,8 +121,8 @@ export default function HeroSection() {
               </div>
 
               {/* Haiku carousel */}
-              <div className="relative bg-card border border-border rounded-lg p-5 sm:p-8 premium-shadow mx-auto lg:mx-0 w-full" aria-live="polite">
-                <div className="min-h-[132px] flex flex-col justify-center pr-10">
+              <div className="relative bg-card border border-border rounded-lg p-5 pb-6 sm:p-8 premium-shadow mx-auto lg:mx-0 w-full" aria-live="polite">
+                <div className="min-h-[132px] flex flex-col justify-center sm:pr-10">
                   {haiku.map((line) => (
                     <p key={line} className="font-serif text-lg sm:text-xl italic text-foreground leading-relaxed text-pretty">{line}</p>
                   ))}

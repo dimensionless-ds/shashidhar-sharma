@@ -28,8 +28,8 @@ export default function Home() {
       <PodcastSection />
       <ArticlesSection />
       <ContactSection />
-      <Footer />
       <JourneyTimeline />
+      <Footer />
       <AskShashiChatbot />
     </main>
   )
