@@ -124,7 +124,7 @@ export default function AboutSection() {
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div
-          className={`text-center mb-16 transition-all duration-700 ${
+          className={`text-center mb-10 transition-all duration-700 ${
             isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
           }`}
         >
@@ -139,7 +139,7 @@ export default function AboutSection() {
 
         {/* Biography Section with Image */}
         <div
-          className={`transition-all duration-700 delay-200 mb-20 ${
+            className={`transition-all duration-700 delay-200 mb-12 ${
             isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
           }`}
         >
@@ -227,7 +227,7 @@ export default function AboutSection() {
             isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
           }`}
         >
-          <div className="border-4 border-gold rounded-lg p-6 mb-8 text-center">
+          <div             className="border-4 border-gold rounded-lg p-4 sm:p-6 mb-5 sm:mb-8 text-center">
             <h3 className="font-serif text-2xl md:text-3xl font-bold text-foreground">
               A Journey Through Time
             </h3>

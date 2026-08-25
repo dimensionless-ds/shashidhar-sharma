@@ -12,7 +12,7 @@ export default function HeroSection() {
   return (
     <section
       id="home"
-      className="min-h-screen relative flex items-center justify-center overflow-hidden bg-background pt-28 lg:pt-32"
+      className="min-h-0 lg:min-h-screen relative flex items-start lg:items-center justify-center overflow-hidden bg-background pt-0 sm:pt-8 lg:pt-16"
     >
       {/* Subtle background pattern */}
       <div className="absolute inset-0 opacity-[0.02]">
@@ -27,8 +27,8 @@ export default function HeroSection() {
       {/* Gold accent line */}
       <div className="absolute top-0 left-0 right-0 h-1 gold-gradient" />
 
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-24 pb-16">
-        <div className="grid lg:grid-cols-2 gap-4 lg:gap-8 items-start">
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 sm:pt-12 pb-12 lg:pt-16 lg:pb-16">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-8 items-start">
           {/* Content */}
           <div className="text-center lg:text-left order-2 lg:order-1">
             {/* Headline */}
@@ -91,9 +91,9 @@ export default function HeroSection() {
           <div className="order-1 lg:order-2">
             <div className="flex flex-col gap-6">
               {/* Main image container */}
-              <div className="relative w-72 sm:w-80 md:w-96 aspect-square rounded-lg overflow-hidden premium-shadow-lg mx-auto lg:mx-0">
+              <div className="relative w-full max-w-72 sm:max-w-80 md:max-w-96 aspect-square rounded-lg overflow-hidden premium-shadow-lg mx-auto lg:mx-0">
                 <Image
-                  src="/images/author-hero.jpg"
+                  src="/images/author-headshot.jpg"
                   alt="Shashidhar Sharma - Author and Speaker"
                   fill
                   className="object-cover object-center"
