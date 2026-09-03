@@ -126,7 +126,7 @@ export default function ContactSection() {
         <div className="grid lg:grid-cols-2 gap-12">
           {/* Contact Form */}
           <div
-            className={`transition-all duration-700 delay-200 ${
+            className={`order-1 transition-all duration-700 delay-200 ${
               isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
             }`}
           >
@@ -248,12 +248,12 @@ export default function ContactSection() {
 
           {/* Contact Info */}
           <div
-            className={`transition-all duration-700 delay-400 ${
+            className={`contents transition-all duration-700 delay-400 ${
               isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
             }`}
           >
             {/* Contact Details */}
-            <div className="bg-card border border-border rounded-xl p-8 premium-shadow mb-8">
+            <div className="order-2 bg-card border border-border rounded-xl p-6 sm:p-8 premium-shadow lg:col-start-2">
               <h3 className="font-serif text-2xl font-bold text-foreground mb-6">
                 Contact Information
               </h3>
@@ -321,7 +321,7 @@ export default function ContactSection() {
             </div>
 
             {/* Newsletter Signup */}
-            <div className="bg-foreground rounded-xl p-8">
+            <div className="order-3 bg-foreground rounded-xl p-6 sm:p-8 lg:col-start-2 lg:row-start-2">
               <h3 className="font-serif text-2xl font-bold text-background mb-3">
                 Join the Newsletter
               </h3>
@@ -383,7 +383,7 @@ export default function ContactSection() {
             </div>
 
             {/* AI Chatbot Placeholder */}
-            <div className="mt-8 p-6 bg-card border border-dashed border-border rounded-xl text-center">
+            <div className="order-3 mt-6 p-6 bg-card border border-dashed border-border rounded-xl text-center lg:col-start-1 lg:row-start-2">
               <MessageCircle className="w-10 h-10 text-gold mx-auto mb-3" />
               <p className="font-medium text-foreground mb-1">Talk to our AI Assistant &quot;Ask Shashi&quot;</p>
               <p className="text-sm text-muted-foreground">
@@ -393,7 +393,9 @@ export default function ContactSection() {
             </div>
 
             {/* Donation Section */}
-            <DonationSection />
+            <div className="order-4 lg:col-start-1 lg:row-start-3">
+              <DonationSection />
+            </div>
           </div>
         </div>
       </div>
