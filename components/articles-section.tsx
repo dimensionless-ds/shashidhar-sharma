@@ -170,7 +170,7 @@ export default function ArticlesSection() {
   const regularArticles = filteredArticles.filter((article) => !article.featured)
 
   return (
-    <section ref={sectionRef} id="articles" className="py-24 bg-secondary/30 relative">
+    <section ref={sectionRef} id="articles" className="bg-secondary/30 relative py-14 sm:py-16">
       {/* Decorative elements */}
       <div className="absolute bottom-0 left-1/4 w-96 h-96 bg-gold/5 rounded-full blur-3xl" />
 
@@ -414,7 +414,7 @@ export default function ArticlesSection() {
         )}
 
         {/* Articles Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid items-stretch gap-5 md:grid-cols-2 lg:grid-cols-3">
           {regularArticles.map((article, index) => {
             const IconComponent = article.icon
             return (
@@ -423,14 +423,14 @@ export default function ArticlesSection() {
                 href={article.link}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`group bg-card border border-border rounded-xl p-6 hover:border-gold/30 transition-all duration-300 cursor-pointer premium-shadow block ${
+                className={`group flex h-full flex-col bg-card border border-border rounded-xl p-5 sm:p-6 hover:border-primary/30 transition-all duration-300 cursor-pointer premium-shadow block ${
                   isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
                 }`}
                 style={{ transitionDelay: `${(index + 4) * 100}ms` }}
               >
                 {/* Icon */}
-                <div className="mb-4">
-                  <IconComponent className="w-8 h-8 text-red-600 group-hover:scale-110 transition-transform duration-300" />
+                <div className="mb-3">
+                  <IconComponent className="h-8 w-8 text-primary group-hover:scale-110 transition-transform duration-300" />
                 </div>
 
                 {/* Category and meta */}
@@ -452,7 +452,7 @@ export default function ArticlesSection() {
                 </p>
 
                 {/* Footer */}
-                <div className="flex items-center justify-between pt-4 border-t border-border">
+                <div className="mt-auto flex items-center justify-between border-t border-border pt-4">
                   <span className="text-xs text-muted-foreground flex items-center gap-1">
                     <Clock className="w-3 h-3" />
                     {article.readTime}
