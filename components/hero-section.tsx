@@ -110,7 +110,7 @@ export default function HeroSection() {
               {/* Main image container */}
               <div className="relative w-full max-w-72 sm:max-w-80 md:max-w-96 aspect-square rounded-lg overflow-hidden premium-shadow-lg mx-auto lg:mx-0">
                 <Image
-                  src="/images/hero-speaking.jpg"
+                  src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/91232E1E-FEB1-4CD6-B4BB-58AA775260D5-kwOYO6AT4vTWPMhHs6FpALtaRItM8o.jpeg"
                   alt="Shashidhar Sharma - Author and Speaker"
                   fill
                   className="object-cover object-center"
