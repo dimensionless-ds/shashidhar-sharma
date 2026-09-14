@@ -47,7 +47,7 @@ export default function HeroSection() {
       <div className="relative z-10 mx-auto w-full max-w-7xl px-5 sm:px-6 lg:px-8 pb-12 pt-8 sm:pt-12 lg:py-16">
         <div className="grid grid-cols-1 lg:grid-cols-[0.9fr_1.1fr] gap-10 lg:gap-16 items-start">
           {/* Content */}
-          <div className="text-center lg:text-left order-2 lg:order-1">
+          <div className="text-center lg:text-left order-1 lg:order-1">
             {/* Headline */}
             <h1 className="font-serif text-[2.65rem] sm:text-5xl lg:text-6xl font-semibold tracking-[-0.045em] text-foreground leading-[0.98] mb-7 text-balance">
               The future will not ask how intelligent our systems were.{" "}
@@ -105,7 +105,7 @@ export default function HeroSection() {
           </div>
 
           {/* Portrait */}
-          <div className="order-1 lg:order-2">
+          <div className="order-2 lg:order-2">
             <div className="flex flex-col gap-6">
               {/* Main image container */}
               <div className="relative w-full max-w-[19rem] sm:max-w-96 aspect-[4/5] rounded-[1.25rem] overflow-hidden premium-shadow-lg mx-auto lg:mx-0">
