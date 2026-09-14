@@ -29,7 +29,7 @@ export default function HeroSection() {
   return (
     <section
       id="home"
-      className="min-h-0 lg:min-h-screen relative flex items-start lg:items-center justify-center overflow-hidden bg-background pt-0 sm:pt-4 lg:pt-12"
+      className="relative flex items-start lg:items-center justify-center overflow-hidden bg-background pt-8 sm:pt-12 lg:min-h-screen lg:pt-16"
     >
       {/* Subtle background pattern */}
       <div className="absolute inset-0 opacity-[0.02]">
@@ -44,19 +44,19 @@ export default function HeroSection() {
       {/* Gold accent line */}
       <div className="absolute top-0 left-0 right-0 h-1 gold-gradient" />
 
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 sm:pt-12 pb-12 lg:pt-16 lg:pb-16">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-8 items-start">
+      <div className="relative z-10 mx-auto w-full max-w-7xl px-5 sm:px-6 lg:px-8 pb-12 pt-8 sm:pt-12 lg:py-16">
+        <div className="grid grid-cols-1 lg:grid-cols-[0.9fr_1.1fr] gap-10 lg:gap-16 items-start">
           {/* Content */}
           <div className="text-center lg:text-left order-2 lg:order-1">
             {/* Headline */}
-            <h1 className="font-serif text-xl sm:text-2xl lg:text-3xl xl:text-3xl font-bold text-foreground leading-tight mb-8 text-balance">
+            <h1 className="font-serif text-[2.65rem] sm:text-5xl lg:text-6xl font-semibold tracking-[-0.045em] text-foreground leading-[0.98] mb-7 text-balance">
               The future will not ask how intelligent our systems were.{" "}
               <span className="gold-text-gradient">It will ask what kind of humans they produced.</span>
               {" "}And there is no neutral answer.
             </h1>
 
             {/* Professional Bio */}
-            <p className="text-sm sm:text-base text-muted-foreground leading-relaxed mb-10 max-w-xl mx-auto lg:mx-0">
+            <p className="text-[0.98rem] sm:text-base text-muted-foreground leading-relaxed mb-8 max-w-xl mx-auto lg:mx-0">
               Country Head, AWA-India | Workplace Strategy, Change Management &amp; Productivity Expert | Author of bestsellers &quot;Songs of the Mist&quot; &amp; &quot;Work and Workplace at the Edge of Intelligence&quot; | Transforming the Future of Work | Founder Green Footprint Trust | Climate Awareness Activist | Keynote Speaker and Coach
             </p>
 
@@ -108,12 +108,12 @@ export default function HeroSection() {
           <div className="order-1 lg:order-2">
             <div className="flex flex-col gap-6">
               {/* Main image container */}
-              <div className="relative w-full max-w-72 sm:max-w-80 md:max-w-96 aspect-square rounded-lg overflow-hidden premium-shadow-lg mx-auto lg:mx-0">
+              <div className="relative w-full max-w-[19rem] sm:max-w-96 aspect-[4/5] rounded-[1.25rem] overflow-hidden premium-shadow-lg mx-auto lg:mx-0">
                 <Image
                   src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/91232E1E-FEB1-4CD6-B4BB-58AA775260D5-kwOYO6AT4vTWPMhHs6FpALtaRItM8o.jpeg"
                   alt="Shashidhar Sharma - Author and Speaker"
                   fill
-                  className="object-cover object-center"
+                  className="object-cover object-[center_20%]"
                   priority
                 />
                 {/* Gold accent overlay */}

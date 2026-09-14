@@ -21,6 +21,7 @@ const inter = Inter({
 })
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://shashidharsharma.com"),
   title: "Shashidhar Sharma | Author, Speaker, Thought Leader",
   description:
     "Shashidhar Sharma is a bestselling Indian author, keynote speaker, and thought leader. Explore his books, podcast, articles, and speaking engagements.",
@@ -41,6 +42,8 @@ export const metadata: Metadata = {
   authors: [{ name: "Shashidhar Sharma" }],
   creator: "Shashidhar Sharma",
   publisher: "Shashidhar Sharma",
+  colorScheme: "dark",
+  themeColor: "#0f1724",
   robots: {
     index: true,
     follow: true,

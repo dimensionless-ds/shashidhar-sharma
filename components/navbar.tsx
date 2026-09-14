@@ -49,7 +49,7 @@ export default function Navbar() {
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between min-h-20 py-3">
+        <div className="flex items-center justify-between min-h-16 py-3">
           {/* Logo */}
           <Link
             href="#home"
@@ -59,13 +59,13 @@ export default function Navbar() {
             }}
             className="flex items-center"
           >
-            <span className="font-serif text-2xl font-bold text-foreground tracking-tight">
+            <span className="font-serif text-xl sm:text-2xl font-semibold text-foreground tracking-[-0.03em] max-w-[190px] leading-[0.9]">
               Shashidhar Sharma<span className="text-gold">.</span>
             </span>
           </Link>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center gap-8">
+          <div className="hidden lg:flex items-center gap-7">
             {navItems.map((item) => (
               <button
                 key={item.name}
@@ -78,7 +78,7 @@ export default function Navbar() {
           </div>
 
           {/* CTA Button */}
-          <div className="hidden md:block">
+          <div className="hidden lg:block">
             <Button
               onClick={() => scrollToSection("#contact")}
               className="bg-foreground text-background hover:bg-foreground/90 font-medium px-6"
@@ -90,7 +90,7 @@ export default function Navbar() {
           {/* Mobile Menu Button */}
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className="md:hidden p-2 text-foreground"
+            className="lg:hidden rounded-full border border-border p-2 text-foreground"
             aria-label="Toggle menu"
           >
             {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
