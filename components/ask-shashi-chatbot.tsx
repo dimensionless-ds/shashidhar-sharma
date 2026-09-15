@@ -69,7 +69,7 @@ export default function AskShashiChatbot() {
         aria-label="Open Ask Shashi chatbot"
       >
         <Image
-          src="/images/chatbot-icon.png"
+          src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-LyBkh5HYqiUgnf5z9g0oCDqPPTVcIj.png"
           alt="Ask Shashi"
           width={32}
           height={32}
@@ -91,7 +91,7 @@ export default function AskShashiChatbot() {
         <div className="bg-foreground text-background p-4 flex items-center justify-between">
           <div className="flex items-center gap-3">
             <Image
-              src="/images/chatbot-icon.png"
+              src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-LyBkh5HYqiUgnf5z9g0oCDqPPTVcIj.png"
               alt="Ask Shashi"
               width={40}
               height={40}
