@@ -124,7 +124,7 @@ export default function WorkWorkplaceSection() {
             <div className="relative">
               <div className="relative aspect-[3/4] max-w-md mx-auto rounded-xl overflow-hidden premium-shadow-lg">
                 <Image
-                  src="/images/books/book-1.jpg"
+                  src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-JkOXIYGXcdVjFxlA4pbLslTe9cqwQ6.png"
                   alt="Work and Workplace at the Edge of Intelligence"
                   fill
                   className="object-cover"
