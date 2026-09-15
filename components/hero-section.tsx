@@ -2,156 +2,66 @@
 
 import Image from "next/image"
 import { Button } from "@/components/ui/button"
-import { ChevronDown, BookOpen, Mic, ChevronLeft, ChevronRight } from "lucide-react"
-import { useEffect, useState } from "react"
+import { ArrowDown, ArrowRight, BookOpen, Mic } from "lucide-react"
 
-const haikus = [
-  ["No fear of dying", "It is beauty of being", "Emptiness of life"],
-  ["O beautiful life", "Be the sea - Calm, receiving", "Cleansing and holding"],
-  ["Moss, grass creeps upon", "The Ancient pond, winter moon", "Hides behind snow veils"],
-  ["Her hands outstretched - wings", "Runs in meadow - Autumn leaves", "Butterflies in wake"],
-  ["Red sky and green earth", "Mate; Pregnant with clouds, Monsoon", "Delivers in rains"],
-] as const
+const stagePhoto = "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/ChatGPT%20Image%20Sep%2015%2C%202026%20at%2003_04_31%20PM-tlT0YV0DBI09M2KHuCUzIxqculsb57.png"
+const bookCover = "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-JkOXIYGXcdVjFxlA4pbLslTe9cqwQ6.png"
 
 export default function HeroSection() {
-  const [haikuIndex, setHaikuIndex] = useState(0)
-
-  useEffect(() => {
-    const interval = window.setInterval(() => setHaikuIndex((current) => (current + 1) % haikus.length), 12 * 60 * 60 * 1000)
-    return () => window.clearInterval(interval)
-  }, [])
-
-  const haiku = haikus[haikuIndex]
   const scrollToSection = (id: string) => {
     document.getElementById(id)?.scrollIntoView({ behavior: "smooth" })
   }
 
   return (
-    <section
-      id="home"
-      className="relative flex items-start lg:items-center justify-center overflow-hidden bg-background pt-8 sm:pt-12 lg:min-h-screen lg:pt-16"
-    >
-      {/* Subtle background pattern */}
-      <div className="absolute inset-0 opacity-[0.02]">
-        <div
-          className="absolute inset-0"
-          style={{
-            backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23000000' fill-opacity='1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
-          }}
-        />
-      </div>
+    <section id="home" className="relative isolate min-h-[100svh] overflow-hidden bg-[#0b0d0e] text-[#f3efe7]">
+      <Image
+        src={stagePhoto}
+        alt="Shashidhar Sharma speaking on stage"
+        fill
+        priority
+        sizes="100vw"
+        className="object-cover object-[58%_20%] opacity-75 sm:object-[60%_18%] lg:object-[58%_center]"
+      />
+      <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(11,13,14,.96)_0%,rgba(11,13,14,.82)_34%,rgba(11,13,14,.2)_72%,rgba(11,13,14,.42)_100%)]" />
+      <div className="absolute inset-0 bg-[linear-gradient(0deg,rgba(11,13,14,.96)_0%,transparent_42%,rgba(11,13,14,.25)_100%)]" />
 
-      {/* Gold accent line */}
-      <div className="absolute top-0 left-0 right-0 h-1 gold-gradient" />
-
-      <div className="relative z-10 mx-auto w-full max-w-7xl px-5 sm:px-6 lg:px-8 pb-12 pt-8 sm:pt-12 lg:py-16">
-        <div className="grid grid-cols-1 lg:grid-cols-[0.9fr_1.1fr] gap-10 lg:gap-16 items-start">
-          {/* Content */}
-          <div className="text-center lg:text-left order-1 lg:order-1">
-            {/* Headline */}
-            <h1 className="font-serif text-[2.65rem] sm:text-5xl lg:text-6xl font-semibold tracking-[-0.045em] text-foreground leading-[0.98] mb-7 text-balance">
-              The future will not ask how intelligent our systems were.{" "}
-              <span className="gold-text-gradient">It will ask what kind of humans they produced.</span>
-              {" "}And there is no neutral answer.
-            </h1>
-
-            {/* Professional Bio */}
-            <p className="text-[0.98rem] sm:text-base text-muted-foreground leading-relaxed mb-8 max-w-xl mx-auto lg:mx-0">
-              Country Head, AWA-India | Workplace Strategy, Change Management &amp; Productivity Expert | Author of bestsellers &quot;Songs of the Mist&quot; &amp; &quot;Work and Workplace at the Edge of Intelligence&quot; | Transforming the Future of Work | Founder Green Footprint Trust | Climate Awareness Activist | Keynote Speaker and Coach
+      <div className="relative z-10 mx-auto flex min-h-[100svh] w-full max-w-[1440px] flex-col justify-end px-5 pb-8 pt-28 sm:px-8 sm:pb-12 lg:px-14 lg:pb-16">
+        <div className="grid items-end gap-10 lg:grid-cols-[minmax(0,1fr)_220px] lg:gap-16">
+          <div className="max-w-3xl">
+            <p className="mb-5 flex items-center gap-3 text-[0.68rem] font-medium uppercase tracking-[0.28em] text-[#e85a24]">
+              <span className="h-px w-8 bg-[#e85a24]" /> Author / Thought Leader / Speaker
             </p>
-
-            {/* CTA Buttons */}
-            <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-              <Button
-                onClick={() => scrollToSection("books")}
-                size="lg"
-                className="bg-foreground text-background hover:bg-foreground/90 font-medium px-8 py-6 text-base"
-              >
-                <BookOpen className="w-5 h-5 mr-2" />
-                Explore Books
+            <h1 className="max-w-3xl font-serif text-[3.5rem] font-medium leading-[0.86] tracking-[-0.055em] text-[#f3efe7] sm:text-6xl lg:text-[6.7rem]">
+              Rethinking work, intelligence and the human future.
+            </h1>
+            <p className="mt-7 max-w-xl text-base leading-relaxed text-[#f3efe7]/72 sm:text-lg">
+              Shashidhar Sharma explores how AI, human intelligence and changing workplaces are reshaping the way we work and live.
+            </p>
+            <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+              <Button onClick={() => scrollToSection("books")} size="lg" className="h-12 rounded-none bg-[#e85a24] px-6 text-[#fffaf2] hover:bg-[#f06b38]">
+                <BookOpen data-icon="inline-start" /> Explore the book <ArrowRight data-icon="inline-end" />
               </Button>
-              <Button
-                asChild
-                size="lg"
-                variant="outline"
-                className="border-2 border-foreground text-foreground hover:bg-foreground hover:text-background font-medium px-8 py-6 text-base transition-colors"
-              >
-                <a
-                  href="https://wa.me/919731723023?text=Hello%2C%20I%20would%20like%20to%20invite%20Shashidhar%20Sharma%20to%20speak%20at%20our%20event."
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <Mic className="w-5 h-5 mr-2" />
-                  Invite to Speak
+              <Button asChild size="lg" variant="outline" className="h-12 rounded-none border-[#f3efe7]/45 bg-transparent px-6 text-[#f3efe7] hover:bg-[#f3efe7] hover:text-[#0b0d0e]">
+                <a href="https://wa.me/919731723023?text=Hello%2C%20I%20would%20like%20to%20invite%20Shashidhar%20Sharma%20to%20speak%20at%20our%20event." target="_blank" rel="noopener noreferrer">
+                  <Mic data-icon="inline-start" /> Invite Shashidhar
                 </a>
               </Button>
             </div>
-
-            {/* Stats */}
-            <div className="grid grid-cols-3 gap-8 mt-12 pt-8 border-t border-border">
-              <div className="text-center lg:text-left">
-                <p className="font-serif text-3xl sm:text-4xl font-bold text-foreground">9+</p>
-                <p className="text-sm text-muted-foreground mt-1">Books Published</p>
-              </div>
-              <div className="text-center lg:text-left">
-                <p className="font-serif text-3xl sm:text-4xl font-bold text-foreground">100K+</p>
-                <p className="text-sm text-muted-foreground mt-1">Readers Worldwide</p>
-              </div>
-              <div className="text-center lg:text-left">
-                <p className="font-serif text-3xl sm:text-4xl font-bold text-foreground">100+</p>
-                <p className="text-sm text-muted-foreground mt-1">Speaking Events</p>
-              </div>
-            </div>
           </div>
 
-          {/* Portrait */}
-          <div className="order-2 lg:order-2">
-            <div className="flex flex-col gap-6">
-              {/* Main image container */}
-              <div className="relative w-full max-w-[19rem] sm:max-w-96 aspect-[4/5] rounded-[1.25rem] overflow-hidden premium-shadow-lg mx-auto lg:mx-0">
-                <Image
-                  src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/91232E1E-FEB1-4CD6-B4BB-58AA775260D5-kwOYO6AT4vTWPMhHs6FpALtaRItM8o.jpeg"
-                  alt="Shashidhar Sharma - Author and Speaker"
-                  fill
-                  className="object-cover object-[center_20%]"
-                  priority
-                />
-                {/* Gold accent overlay */}
-                <div className="absolute bottom-0 left-0 right-0 h-1 gold-gradient" />
-              </div>
-
-              {/* Haiku carousel */}
-              <div className="relative bg-card border border-border rounded-lg p-5 pb-6 sm:p-8 premium-shadow mx-auto lg:mx-0 w-full" aria-live="polite">
-                <div className="min-h-[132px] flex flex-col justify-center sm:pr-10">
-                  {haiku.map((line) => (
-                    <p key={line} className="font-serif text-lg sm:text-xl italic text-foreground leading-relaxed text-pretty">{line}</p>
-                  ))}
-                </div>
-                <p className="text-sm text-gold mt-3 font-medium">— Haiku – Life, Love &amp; Living</p>
-                <div className="absolute right-4 bottom-4 flex gap-1">
-                  <button type="button" onClick={() => setHaikuIndex((haikuIndex - 1 + haikus.length) % haikus.length)} aria-label="Previous haiku" className="rounded-full border border-border p-1.5 text-muted-foreground hover:text-gold"><ChevronLeft className="h-4 w-4" /></button>
-                  <button type="button" onClick={() => setHaikuIndex((haikuIndex + 1) % haikus.length)} aria-label="Next haiku" className="rounded-full bg-gold p-1.5 text-primary-foreground"><ChevronRight className="h-4 w-4" /></button>
-                </div>
-              </div>
+          <div className="group relative mx-auto w-[136px] sm:w-[164px] lg:mx-0 lg:w-[210px]">
+            <div className="absolute -inset-3 bg-[#e85a24]/20 blur-2xl transition-opacity duration-500 group-hover:opacity-70" />
+            <div className="relative aspect-[0.7] rotate-[-2deg] overflow-hidden shadow-[18px_22px_45px_rgba(0,0,0,.5)] transition-transform duration-500 group-hover:-translate-y-2 group-hover:rotate-0">
+              <Image src={bookCover} alt="Work and Workplace at the Edge of Intelligence book cover" fill sizes="(max-width: 640px) 164px, 210px" className="object-cover" />
             </div>
+            <p className="mt-4 text-[0.62rem] uppercase tracking-[0.2em] text-[#f3efe7]/55">Featured book</p>
           </div>
         </div>
 
-        {/* Scroll indicator */}
-        <div className="flex justify-center mt-16 lg:mt-24">
-          <button
-            onClick={() => scrollToSection("about")}
-            className="animate-float group"
-            aria-label="Scroll to about section"
-          >
-            <div className="flex flex-col items-center gap-2">
-              <span className="text-sm text-muted-foreground group-hover:text-foreground transition-colors">
-                Discover More
-              </span>
-              <div className="w-10 h-10 rounded-full border-2 border-border flex items-center justify-center group-hover:border-gold transition-colors">
-                <ChevronDown className="w-5 h-5 text-muted-foreground group-hover:text-gold transition-colors" />
-              </div>
-            </div>
+        <div className="mt-12 flex items-center justify-between border-t border-[#f3efe7]/20 pt-4 text-[0.65rem] uppercase tracking-[0.2em] text-[#f3efe7]/55">
+          <span>01 / The author</span>
+          <button type="button" onClick={() => scrollToSection("about")} className="flex items-center gap-2 transition-colors hover:text-[#e85a24]" aria-label="Scroll to discover more">
+            Discover more <ArrowDown aria-hidden="true" />
           </button>
         </div>
       </div>

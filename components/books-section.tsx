@@ -11,7 +11,7 @@ const books = [
     id: 1,
     title: "Work and Workplace at the Edge of Intelligence",
     subtitle: "Why the Future Depends on AI, Climate, and the Human Mind",
-    image: "/images/books/book-1.jpg",
+    image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-JkOXIYGXcdVjFxlA4pbLslTe9cqwQ6.png",
     description:
       "A wakeup call to truly understand the choices we must make for the future we want. This book explores how AI, climate change, and human psychology will reshape work and workplace productivity.",
     rating: 5.0,
