@@ -55,7 +55,7 @@ export default function TalksSection() {
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
           {/* Speaker Image and Description */}
           <div className="lg:col-span-1">
-            <Card className="glass p-6 hover:scale-105 transition-all duration-300 hover:shadow-2xl hover:shadow-blue-500/20 group">
+            <Card className="glass p-6 hover:scale-105 transition-all duration-300 hover:shadow-2xl hover:shadow-orange-500/20 group">
               <div className="mb-4">
                 <div className="w-full h-48 rounded-lg overflow-hidden mb-4 relative">
                   <Image
@@ -82,10 +82,10 @@ export default function TalksSection() {
 
           {/* Argentina Talks */}
           <div className="lg:col-span-1">
-            <Card className="glass p-8 hover:scale-105 transition-all duration-300 hover:shadow-2xl hover:shadow-blue-500/20 group">
+            <Card className="glass p-8 hover:scale-105 transition-all duration-300 hover:shadow-2xl hover:shadow-orange-500/20 group">
               <div className="flex items-center justify-center mb-6">
-                <MapPin className="w-6 h-6 mr-2 text-blue-400" />
-                <h3 className="text-2xl font-bold text-center text-white group-hover:text-blue-400 transition-colors duration-300">
+                <MapPin className="w-6 h-6 mr-2 text-orange-400" />
+                <h3 className="text-2xl font-bold text-center text-white group-hover:text-orange-400 transition-colors duration-300">
                   Argentina
                 </h3>
               </div>
@@ -95,7 +95,7 @@ export default function TalksSection() {
                     key={index}
                     className="flex items-start space-x-2 text-white/75 hover:text-white hover:translate-x-2 transition-all duration-300"
                   >
-                    <span className="text-sm mt-1 text-blue-400">•</span>
+                    <span className="text-sm mt-1 text-orange-400">•</span>
                     <span className="text-sm hover:text-blue-300 transition-colors duration-200">{talk}</span>
                   </div>
                 ))}

@@ -176,7 +176,7 @@ export default function PortfolioSection() {
       className="py-16 md:py-24 bg-gradient-to-b from-black to-gray-900/80 relative overflow-hidden"
     >
       <div className="absolute inset-0 opacity-5">
-        <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-blue-500/20 rounded-full blur-3xl animate-pulse"></div>
+        <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-orange-500/20 rounded-full blur-3xl animate-pulse"></div>
         <div
           className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-purple-500/20 rounded-full blur-3xl animate-pulse"
           style={{ animationDelay: "2s" }}
@@ -198,7 +198,7 @@ export default function PortfolioSection() {
               onClick={() => setActiveCategory("product")}
               className={`px-6 py-3 rounded-xl font-medium transition-all duration-300 ${
                 activeCategory === "product"
-                  ? "bg-blue-500 text-white shadow-lg shadow-blue-500/25"
+                  ? "bg-orange-500 text-white shadow-lg shadow-orange-500/25"
                   : "bg-white/10 text-white/70 hover:bg-white/20 hover:text-white"
               }`}
             >
@@ -208,7 +208,7 @@ export default function PortfolioSection() {
               onClick={() => setActiveCategory("marketing")}
               className={`px-6 py-3 rounded-xl font-medium transition-all duration-300 ${
                 activeCategory === "marketing"
-                  ? "bg-blue-500 text-white shadow-lg shadow-blue-500/25"
+                  ? "bg-orange-500 text-white shadow-lg shadow-orange-500/25"
                   : "bg-white/10 text-white/70 hover:bg-white/20 hover:text-white"
               }`}
             >
@@ -231,7 +231,7 @@ export default function PortfolioSection() {
                 transitionDelay: `${item.delay}ms`,
               }}
             >
-              <div className="glass relative overflow-hidden transition-all duration-300 hover:scale-105 hover:shadow-xl hover:shadow-blue-500/30 aspect-[4/3] rounded-xl">
+              <div className="glass relative overflow-hidden transition-all duration-300 hover:scale-105 hover:shadow-xl hover:shadow-orange-500/30 aspect-[4/3] rounded-xl">
                 <Image
                   src={item.image || "/placeholder.svg"}
                   alt={`${item.title} case study - Artu Grande UX design portfolio Web3 fintech`}

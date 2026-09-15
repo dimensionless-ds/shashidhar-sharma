@@ -111,7 +111,7 @@ export default function BlogSection() {
                   placeholder="Search articles..."
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
-                  className="bg-white/5 backdrop-blur-md border border-white/10 rounded-full pl-10 pr-4 py-2 text-white placeholder-white/50 focus:outline-none focus:ring-2 focus:ring-blue-500/50 focus:border-transparent w-64"
+                  className="bg-white/5 backdrop-blur-md border border-white/10 rounded-full pl-10 pr-4 py-2 text-white placeholder-white/50 focus:outline-none focus:ring-2 focus:ring-orange-500/50 focus:border-transparent w-64"
                 />
               </div>
             )}
@@ -163,7 +163,7 @@ export default function BlogSection() {
                         {formatDate(post.pubDate)}
                       </div>
 
-                      <h3 className="text-white font-semibold text-lg mb-3 line-clamp-2 group-hover:text-blue-300 transition-colors">
+                      <h3 className="text-white font-semibold text-lg mb-3 line-clamp-2 group-hover:text-orange-300 transition-colors">
                         {cleanText(post.title, "Untitled Article")}
                       </h3>
 
@@ -171,7 +171,7 @@ export default function BlogSection() {
                         {cleanText(post.description, "No description available.")}
                       </p>
 
-                      <div className="inline-flex items-center text-blue-400 group-hover:text-blue-300 font-medium text-sm transition-colors group-hover:translate-x-1 transform duration-200">
+                      <div className="inline-flex items-center text-orange-400 group-hover:text-orange-300 font-medium text-sm transition-colors group-hover:translate-x-1 transform duration-200">
                         {t("blog.readMore")}
                         <ExternalLink className="w-4 h-4 ml-2" />
                       </div>
@@ -213,7 +213,7 @@ export default function BlogSection() {
                             {formatDate(post.pubDate)}
                           </div>
 
-                          <h3 className="text-white font-semibold text-lg mb-2 line-clamp-2 group-hover:text-blue-300 transition-colors">
+                          <h3 className="text-white font-semibold text-lg mb-2 line-clamp-2 group-hover:text-orange-300 transition-colors">
                             {cleanText(post.title, "Untitled Article")}
                           </h3>
 
@@ -221,7 +221,7 @@ export default function BlogSection() {
                             {cleanText(post.description, "No description available.")}
                           </p>
 
-                          <div className="inline-flex items-center text-blue-400 group-hover:text-blue-300 font-medium text-sm transition-colors">
+                          <div className="inline-flex items-center text-orange-400 group-hover:text-orange-300 font-medium text-sm transition-colors">
                             {t("blog.readMore")}
                             <ExternalLink className="w-3 h-3 ml-1" />
                           </div>
