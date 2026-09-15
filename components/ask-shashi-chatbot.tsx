@@ -69,14 +69,13 @@ export default function AskShashiChatbot() {
         aria-label="Open Ask Shashi chatbot"
       >
         <Image
-          src="/images/chatbot-icon.png"
+          src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-lY8Ci4nciGTxip5ZrKumqHIUXI4h2X.png"
           alt="Ask Shashi"
           width={32}
           height={32}
           className="rounded-full"
         />
         <span className="hidden sm:inline">Ask Shashi</span>
-        <span className="text-lg">⭐</span>
       </button>
 
       {/* Chat Window */}
@@ -91,15 +90,15 @@ export default function AskShashiChatbot() {
         <div className="bg-foreground text-background p-4 flex items-center justify-between">
           <div className="flex items-center gap-3">
             <Image
-              src="/images/chatbot-icon.png"
+              src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-lY8Ci4nciGTxip5ZrKumqHIUXI4h2X.png"
               alt="Ask Shashi"
               width={40}
               height={40}
               className="rounded-full bg-background p-1"
             />
             <div>
-              <h3 className="font-serif font-bold text-lg flex items-center gap-1">
-                Ask Shashi <span>⭐</span>
+              <h3 className="font-serif font-bold text-lg">
+                Ask Shashi
               </h3>
               <p className="text-xs text-background/70">AI Assistant</p>
             </div>

@@ -43,7 +43,7 @@ export const metadata: Metadata = {
   creator: "Shashidhar Sharma",
   publisher: "Shashidhar Sharma",
   colorScheme: "dark",
-  themeColor: "#0f1724",
+  themeColor: "#f4511e",
   robots: {
     index: true,
     follow: true,
