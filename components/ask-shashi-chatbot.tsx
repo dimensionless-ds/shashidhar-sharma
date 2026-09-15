@@ -76,7 +76,6 @@ export default function AskShashiChatbot() {
           className="rounded-full"
         />
         <span className="hidden sm:inline">Ask Shashi</span>
-        <span className="text-lg">⭐</span>
       </button>
 
       {/* Chat Window */}
@@ -98,8 +97,8 @@ export default function AskShashiChatbot() {
               className="rounded-full bg-background p-1"
             />
             <div>
-              <h3 className="font-serif font-bold text-lg flex items-center gap-1">
-                Ask Shashi <span>⭐</span>
+              <h3 className="font-serif font-bold text-lg">
+                Ask Shashi
               </h3>
               <p className="text-xs text-background/70">AI Assistant</p>
             </div>
