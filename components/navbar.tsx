@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react"
 import Link from "next/link"
-import { Menu, X } from "lucide-react"
+import { Menu, Search, X } from "lucide-react"
 import { Button } from "@/components/ui/button"
 
 const navItems = [
@@ -77,6 +77,18 @@ export default function Navbar() {
             ))}
           </div>
 
+          {/* AI Search */}
+          <button
+            type="button"
+            onClick={() => scrollToSection("#ai-search")}
+            className="hidden items-center gap-2 rounded-full border border-border bg-background/70 px-3 py-2 text-xs font-medium text-muted-foreground transition-colors hover:border-gold hover:text-gold xl:flex"
+            aria-label="Open AI search"
+          >
+            <Search className="size-3.5" aria-hidden="true" />
+            Ask AI
+            <kbd className="rounded border border-border px-1 font-mono text-[10px] text-muted-foreground/70">/</kbd>
+          </button>
+
           {/* CTA Button */}
           <div className="hidden lg:block">
             <Button
@@ -114,6 +126,14 @@ export default function Navbar() {
               {item.name}
             </button>
           ))}
+          <button
+            type="button"
+            onClick={() => scrollToSection("#ai-search")}
+            className="flex w-full items-center gap-2 border-b border-border/50 py-3 text-left text-lg font-medium text-foreground hover:text-gold"
+          >
+            <Search className="size-5" aria-hidden="true" />
+            Ask AI
+          </button>
           <Button
             onClick={() => scrollToSection("#contact")}
             className="w-full bg-foreground text-background hover:bg-foreground/90 font-medium mt-4"
