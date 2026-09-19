@@ -1,10 +1,12 @@
 import Razorpay from "razorpay"
 import crypto from "crypto"
 
-const razorpayInstance = new Razorpay({
-  key_id: process.env.NEXT_PUBLIC_RAZORPAY_KEY_ID!,
-  key_secret: process.env.RAZORPAY_SECRET_KEY!,
-})
+function getRazorpayInstance() {
+  const keyId = process.env.NEXT_PUBLIC_RAZORPAY_KEY_ID
+  const keySecret = process.env.RAZORPAY_SECRET_KEY
+  if (!keyId || !keySecret) throw new Error("Razorpay is not configured")
+  return new Razorpay({ key_id: keyId, key_secret: keySecret })
+}
 
 export async function createRazorpayOrder(amount: number, description: string) {
   try {
@@ -15,7 +17,7 @@ export async function createRazorpayOrder(amount: number, description: string) {
       receipt: `receipt_${Date.now()}`,
     }
 
-    const order = await razorpayInstance.orders.create(options)
+    const order = await getRazorpayInstance().orders.create(options)
     return {
       success: true,
       orderId: order.id,

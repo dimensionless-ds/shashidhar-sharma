@@ -6,6 +6,12 @@ import { Play, Headphones, ArrowRight, Youtube } from "lucide-react"
 
 const episodes = [
   {
+    id: 0,
+    title: "Edge of Intelligence",
+    videoId: "6vr8pJwWVls",
+    thumbnail: "https://img.youtube.com/vi/6vr8pJwWVls/maxresdefault.jpg",
+  },
+  {
     id: 1,
     title: "What Corporate Bengaluru Wants",
     videoId: "_4eFd1cVER0",
@@ -98,7 +104,7 @@ export default function PodcastSection() {
               <div className="relative aspect-video bg-secondary">
                 {isPlaying ? (
                   <iframe
-                    src="https://www.youtube.com/embed/NTmIGH-B97I?autoplay=1&list=PL2qVWU-7FqfB3mSTluVQUI5cNb-Nba7VM"
+                    src="https://www.youtube.com/embed/6vr8pJwWVls?autoplay=1"
                     title="Featured Video"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                     allowFullScreen
@@ -107,7 +113,7 @@ export default function PodcastSection() {
                 ) : (
                   <>
                     <img
-                      src="https://img.youtube.com/vi/NTmIGH-B97I/maxresdefault.jpg"
+                      src="https://img.youtube.com/vi/6vr8pJwWVls/maxresdefault.jpg"
                       alt="Featured Video Thumbnail"
                       className="absolute inset-0 w-full h-full object-cover"
                     />
@@ -127,7 +133,7 @@ export default function PodcastSection() {
                     <div className="absolute bottom-0 left-0 right-0 p-6">
                       <p className="text-gold text-sm font-medium mb-2">Featured Video</p>
                       <h3 className="font-serif text-2xl font-bold text-background mb-2">
-                        WorkGreen: India&apos;s Largest Conclave
+                        Edge of Intelligence
                       </h3>
                     </div>
                   </>

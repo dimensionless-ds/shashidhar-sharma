@@ -1,18 +1,18 @@
 "use client"
 
 import { useEffect, useState } from "react"
-import { ChevronLeft, ChevronRight } from "lucide-react"
+import { BookOpen, BriefcaseBusiness, ChevronLeft, ChevronRight, Compass, GraduationCap, Leaf, Mic2, Sparkles, Sprout } from "lucide-react"
 
 const timeline = [
-  ["1987", "Cultural Secretary – G B Pant – Delhi University", "Began leadership journey in cultural and academic domains at one of India's premier institutions."],
-  ["1988", "Secretary – Utsav Cultural Festival", "Coordinated major cultural initiatives and festivals, establishing foundation in event management and community engagement."],
-  ["2001 - 2003", "Founder: Green Chennai Conclave", "Founded the Green Chennai Conclave in 2001, a pioneering platform connecting workplace strategy with sustainability and environmental consciousness."],
-  ["2003", "Co-ordinator & Traffic Consultant", "Co-ordinator – Citizens for Safe Roads (Chennai); Traffic Consultant – Digitisation and Police Control Room. Worked on urban safety and digital infrastructure initiatives."],
-  ["2007", "Shadow Dancing With Mind Blog Launch", "Launched influential blog 'Shadow Dancing with Mind' which reached 1.7 million hits by 2010."],
-  ["2016", "Songs of the Mist – Bestselling Author", "Published 'Songs of the Mist,' a spiritual fiction masterpiece reinterpreting the Bhagavad Gita for modern readers."],
-  ["2017", "Founder & Published Haiku Art Book", "Founded Ideas Into Action and GACS (Knowledge Platform). Published 'Haiku - Sound of One Hand Clapping.'"],
-  ["2021", "Green Footprint Trust & WorkGreen Conclave", "Founded Green Footprint Trust and launched WorkGreen Conclave."],
-  ["2026", "Work & Workplace at the Edge of Intelligence", "Published breakthrough work and currently leads workplace transformation initiatives globally as Country Manager – AWA India."],
+  ["2026", "Work & Workplace at the Edge of Intelligence", "Published breakthrough work and currently leads workplace transformation initiatives globally as Country Manager – AWA India.", Sparkles],
+  ["2021", "Green Footprint Trust & WorkGreen Conclave", "Founded Green Footprint Trust and launched WorkGreen Conclave.", Leaf],
+  ["2017", "Founder & Published Haiku Art Book", "Founded Ideas Into Action and GACS (Knowledge Platform). Published 'Haiku - Sound of One Hand Clapping.'", BookOpen],
+  ["2016", "Songs of the Mist – Bestselling Author", "Published 'Songs of the Mist,' a spiritual fiction masterpiece reinterpreting the Bhagavad Gita for modern readers.", BookOpen],
+  ["2007", "Shadow Dancing With Mind Blog Launch", "Launched influential blog 'Shadow Dancing with Mind' which reached 1.7 million hits by 2010.", Sprout],
+  ["2003", "Co-ordinator & Traffic Consultant", "Co-ordinator – Citizens for Safe Roads (Chennai); Traffic Consultant – Digitisation and Police Control Room. Worked on urban safety and digital infrastructure initiatives.", BriefcaseBusiness],
+  ["2001 - 2003", "Founder: Green Chennai Conclave", "Founded the Green Chennai Conclave in 2001, a pioneering platform connecting workplace strategy with sustainability and environmental consciousness.", Compass],
+  ["1988", "Secretary – Utsav Cultural Festival", "Coordinated major cultural initiatives and festivals, establishing foundation in event management and community engagement.", Mic2],
+  ["1987", "Cultural Secretary – G B Pant – Delhi University", "Began leadership journey in cultural and academic domains at one of India's premier institutions.", GraduationCap],
 ] as const
 
 export default function JourneyTimeline({ compact = false }: { compact?: boolean }) {
@@ -27,14 +27,17 @@ export default function JourneyTimeline({ compact = false }: { compact?: boolean
   }, [paused])
 
   return (
-    <section className={compact ? "bg-background" : "bg-background py-12 sm:py-16"} aria-labelledby="journey-title">
+    <section id="journey" className={compact ? "bg-background" : "bg-background py-12 sm:py-16"} aria-labelledby="journey-title">
       <div className={compact ? "mx-auto max-w-4xl" : "mx-auto max-w-7xl px-4 sm:px-6 lg:px-8"}>
         <div className={compact ? "mb-4 rounded-lg border-2 border-gold p-3 text-center" : "mb-6 rounded-lg border-2 border-gold p-4 text-center sm:mb-8 sm:p-6"}>
           <h2 id="journey-title" className="font-serif text-2xl font-bold text-foreground md:text-3xl">A Journey Through Time</h2>
         </div>
         <div className="mx-auto max-w-4xl" onMouseEnter={() => setPaused(true)} onMouseLeave={() => setPaused(false)} onFocus={() => setPaused(true)} onBlur={(event) => { if (!event.currentTarget.contains(event.relatedTarget as Node | null)) setPaused(false) }}>
           <article key={active} className={compact ? "flex min-h-[190px] flex-col justify-center rounded-xl bg-secondary/40 p-5 text-center animate-fade-in" : "flex min-h-[240px] flex-col justify-center rounded-xl bg-secondary/40 p-6 text-center animate-fade-in sm:min-h-[280px] sm:p-12"} aria-live="polite">
-            <p className="mb-3 font-serif text-2xl font-bold text-gold">{item[0]}</p>
+            <div className="mb-4 flex items-center justify-center gap-3">
+              <span className="flex size-11 items-center justify-center rounded-full border border-gold/50 bg-gold/10 text-gold" aria-hidden="true">{(() => { const Icon = item[3]; return <Icon className="size-5" /> })()}</span>
+              <p className="font-serif text-2xl font-bold text-gold">{item[0]}</p>
+            </div>
             <p className="mb-3 text-xl font-medium text-foreground text-balance md:text-2xl">{item[1]}</p>
             <p className="mx-auto max-w-2xl leading-relaxed text-muted-foreground">{item[2]}</p>
           </article>

@@ -6,12 +6,12 @@ import { ChevronLeft, ChevronRight } from "lucide-react"
 
 const images = [
   {
-    src: "/images/press-coverage/image-1.jpg",
-    alt: "Bookends - Launched on a wing and a prayer - Literary festival article",
-  },
-  {
     src: "/images/press-coverage/image-2.jpg",
     alt: "Indian Express - A Quest to the Himalayas After Love & Heartbreak",
+  },
+  {
+    src: "/images/press-1-chennai-chronicle.jpg",
+    alt: "Verified press coverage from Chennai Chronicle",
   },
   {
     src: "/images/press-coverage/image-3.jpg",

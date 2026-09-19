@@ -2,6 +2,8 @@
 
 import { useEffect, useState, useRef } from "react"
 import Image from "next/image"
+import EventGalleryModal from "@/components/event-gallery-modal"
+import { speakingEvents } from "@/data/events"
 import { Button } from "@/components/ui/button"
 import {
   Mic,
@@ -12,7 +14,7 @@ import {
   BookOpen,
   Rocket,
   Calendar,
-  MapPin,
+  GalleryHorizontal,
   ArrowRight,
   CheckCircle,
 } from "lucide-react"
@@ -50,13 +52,6 @@ const speakingTopics = [
   },
 ]
 
-const pastEvents = [
-  { name: "TED x Mumbai", location: "Mumbai, India", year: "2024" },
-  { name: "World Business Forum", location: "Singapore", year: "2023" },
-  { name: "India Leadership Summit", location: "New Delhi", year: "2023" },
-  { name: "Global Entrepreneurs Conference", location: "Dubai, UAE", year: "2022" },
-]
-
 const offerings = [
   "Keynote Speeches (45-90 minutes)",
   "Half-day Workshops",
@@ -68,6 +63,7 @@ const offerings = [
 
 export default function SpeakingSection() {
   const [isVisible, setIsVisible] = useState(false)
+  const [activeEventIndex, setActiveEventIndex] = useState<number | null>(null)
   const sectionRef = useRef<HTMLElement>(null)
 
   useEffect(() => {
@@ -143,7 +139,7 @@ export default function SpeakingSection() {
                     <span className="text-gold font-medium text-sm">Keynote Speaker</span>
                   </div>
                   <h3 className="font-serif text-2xl md:text-3xl font-bold text-background mb-2">
-                    200+ Events Worldwide
+                    Selected speaking engagements
                   </h3>
                   <p className="text-background/80 text-sm">
                     From Fortune 500 companies to global conferences
@@ -161,21 +157,19 @@ export default function SpeakingSection() {
                 <Calendar className="w-5 h-5 text-gold" />
                 Recent Speaking Events
               </h4>
-              <div className="space-y-4">
-                {pastEvents.map((event, index) => (
-                  <div
-                    key={index}
-                    className="flex items-center justify-between p-4 bg-card border border-border rounded-lg hover:border-gold/30 transition-colors"
+              <div className="space-y-1 border-y border-border">
+                {speakingEvents.map((event, index) => (
+                  <button
+                    key={event.id}
+                    type="button"
+                    onClick={() => setActiveEventIndex(index)}
+                    className="group flex min-h-16 w-full items-center gap-4 border-b border-border/70 px-2 py-4 text-left transition-colors last:border-b-0 hover:bg-secondary/40 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold sm:px-3"
                   >
-                    <div>
-                      <p className="font-medium text-foreground">{event.name}</p>
-                      <p className="text-sm text-muted-foreground flex items-center gap-1">
-                        <MapPin className="w-3 h-3" />
-                        {event.location}
-                      </p>
-                    </div>
-                    <span className="text-gold font-serif font-bold">{event.year}</span>
-                  </div>
+                    <span className="w-8 shrink-0 font-serif text-lg text-gold">{String(index + 1).padStart(2, "0")}</span>
+                    <span className="flex size-9 shrink-0 items-center justify-center rounded-full border border-border text-muted-foreground transition-colors group-hover:border-gold group-hover:text-gold" aria-hidden="true"><GalleryHorizontal className="size-4" /></span>
+                    <span className="min-w-0 flex-1 font-medium text-foreground transition-transform group-hover:translate-x-1">{event.title}</span>
+                    <span className="hidden shrink-0 text-[10px] font-medium uppercase tracking-[0.14em] text-gold sm:inline">View gallery <ArrowRight className="ml-1 inline size-3" aria-hidden="true" /></span>
+                  </button>
                 ))}
               </div>
             </div>
@@ -247,6 +241,14 @@ export default function SpeakingSection() {
           </div>
         </div>
       </div>
+
+      <EventGalleryModal
+        event={activeEventIndex === null ? null : speakingEvents[activeEventIndex]}
+        eventIndex={activeEventIndex ?? 0}
+        events={speakingEvents}
+        onClose={() => setActiveEventIndex(null)}
+        onChangeEvent={setActiveEventIndex}
+      />
     </section>
   )
 }

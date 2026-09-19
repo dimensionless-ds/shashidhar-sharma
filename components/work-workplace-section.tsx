@@ -49,18 +49,11 @@ const keyThemes = [
 ]
 
 const insights = [
-  {
-    stat: "73%",
-    label: "of jobs will be transformed by AI by 2030",
-  },
-  {
-    stat: "2.5x",
-    label: "productivity gains with AI-augmented workflows",
-  },
-  {
-    stat: "60%",
-    label: "of workers need reskilling for future roles",
-  },
+  { stat: "04", label: "Books Published" },
+  { stat: "—", label: "Speaking Events" },
+  { stat: "02", label: "Bestsellers" },
+  { stat: "50K+", label: "Readers" },
+  { stat: "12+", label: "Countries" },
 ]
 
 export default function WorkWorkplaceSection() {
@@ -154,7 +147,7 @@ export default function WorkWorkplaceSection() {
             </div>
 
             {/* Key Stats */}
-            <div className="grid grid-cols-3 gap-4 mb-8">
+            <div className="grid grid-cols-2 gap-3 mb-8 sm:grid-cols-5">
               {insights.map((insight, index) => (
                 <div
                   key={index}
