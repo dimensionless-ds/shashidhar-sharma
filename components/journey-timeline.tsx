@@ -4,15 +4,15 @@ import { useEffect, useState } from "react"
 import { ChevronLeft, ChevronRight } from "lucide-react"
 
 const timeline = [
-  ["1987", "Cultural Secretary – G B Pant – Delhi University", "Began leadership journey in cultural and academic domains at one of India's premier institutions."],
-  ["1988", "Secretary – Utsav Cultural Festival", "Coordinated major cultural initiatives and festivals, establishing foundation in event management and community engagement."],
-  ["2001 - 2003", "Founder: Green Chennai Conclave", "Founded the Green Chennai Conclave in 2001, a pioneering platform connecting workplace strategy with sustainability and environmental consciousness."],
-  ["2003", "Co-ordinator & Traffic Consultant", "Co-ordinator – Citizens for Safe Roads (Chennai); Traffic Consultant – Digitisation and Police Control Room. Worked on urban safety and digital infrastructure initiatives."],
-  ["2007", "Shadow Dancing With Mind Blog Launch", "Launched influential blog 'Shadow Dancing with Mind' which reached 1.7 million hits by 2010."],
-  ["2016", "Songs of the Mist – Bestselling Author", "Published 'Songs of the Mist,' a spiritual fiction masterpiece reinterpreting the Bhagavad Gita for modern readers."],
-  ["2017", "Founder & Published Haiku Art Book", "Founded Ideas Into Action and GACS (Knowledge Platform). Published 'Haiku - Sound of One Hand Clapping.'"],
-  ["2021", "Green Footprint Trust & WorkGreen Conclave", "Founded Green Footprint Trust and launched WorkGreen Conclave."],
   ["2026", "Work & Workplace at the Edge of Intelligence", "Published breakthrough work and currently leads workplace transformation initiatives globally as Country Manager – AWA India."],
+  ["2021", "Green Footprint Trust & WorkGreen Conclave", "Founded Green Footprint Trust and launched WorkGreen Conclave."],
+  ["2017", "Founder & Published Haiku Art Book", "Founded Ideas Into Action and GACS (Knowledge Platform). Published 'Haiku - Sound of One Hand Clapping.'"],
+  ["2016", "Songs of the Mist – Bestselling Author", "Published 'Songs of the Mist,' a spiritual fiction masterpiece reinterpreting the Bhagavad Gita for modern readers."],
+  ["2007", "Shadow Dancing With Mind Blog Launch", "Launched influential blog 'Shadow Dancing with Mind' which reached 1.7 million hits by 2010."],
+  ["2003", "Co-ordinator & Traffic Consultant", "Co-ordinator – Citizens for Safe Roads (Chennai); Traffic Consultant – Digitisation and Police Control Room. Worked on urban safety and digital infrastructure initiatives."],
+  ["2001 - 2003", "Founder: Green Chennai Conclave", "Founded the Green Chennai Conclave in 2001, a pioneering platform connecting workplace strategy with sustainability and environmental consciousness."],
+  ["1988", "Secretary – Utsav Cultural Festival", "Coordinated major cultural initiatives and festivals, establishing foundation in event management and community engagement."],
+  ["1987", "Cultural Secretary – G B Pant – Delhi University", "Began leadership journey in cultural and academic domains at one of India's premier institutions."],
 ] as const
 
 export default function JourneyTimeline({ compact = false }: { compact?: boolean }) {

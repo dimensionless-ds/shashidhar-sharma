@@ -51,10 +51,9 @@ const speakingTopics = [
 ]
 
 const pastEvents = [
-  { name: "TED x Mumbai", location: "Mumbai, India", year: "2024" },
-  { name: "World Business Forum", location: "Singapore", year: "2023" },
-  { name: "India Leadership Summit", location: "New Delhi", year: "2023" },
-  { name: "Global Entrepreneurs Conference", location: "Dubai, UAE", year: "2022" },
+  { name: "WorkGreen Conclave", location: "Verified event archive", year: "01" },
+  { name: "Hilton", location: "Verified event archive", year: "02" },
+  { name: "Christ", location: "Verified event archive", year: "03" },
 ]
 
 const offerings = [
@@ -143,7 +142,7 @@ export default function SpeakingSection() {
                     <span className="text-gold font-medium text-sm">Keynote Speaker</span>
                   </div>
                   <h3 className="font-serif text-2xl md:text-3xl font-bold text-background mb-2">
-                    200+ Events Worldwide
+                    Selected speaking engagements
                   </h3>
                   <p className="text-background/80 text-sm">
                     From Fortune 500 companies to global conferences

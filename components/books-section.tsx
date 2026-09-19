@@ -91,48 +91,7 @@ const books = [
     amazonLink: "#",
     sampleLink: "#",
   },
-  {
-    id: 2,
-    title: "Living in COVID Times",
-    subtitle: "An Action Plan - The Monk Key Series",
-    image: "/images/books/book-2.jpg",
-    description:
-      "In difficult times, life can be stressful. This book helps you align your passion, learn something new, and find solace and happiness. A practical guide for navigating uncertainty with resilience.",
-    rating: 4.5,
-    reviews: 2,
-    price: "Rs. 399",
-    bestseller: true,
-    amazonLink: "#",
-    sampleLink: "#",
-  },
-  {
-    id: 3,
-    title: "How to Create a Small Patch of Happiness",
-    subtitle: "Life Lessons from Gardening - The Monk Key Series",
-    image: "/images/books/book-3.jpg",
-    description:
-      "In difficult times, life can be stressful. Align your passion, learn something new to find solace and happiness. Discover how gardening can teach us profound life lessons about patience, growth, and joy.",
-    rating: 5.0,
-    reviews: 1,
-    price: "Rs. 349",
-    bestseller: false,
-    amazonLink: "#",
-    sampleLink: "#",
-  },
-  {
-    id: 9,
-    title: "How To Paint With Light",
-    subtitle: "Learning Digital Photography - The Monk Key Series",
-    image: "/images/books/book-9.jpg",
-    description:
-      "Photography is nothing but Painting with Light. This guide covers various photography genres from black and white street photography to colorful portraits. Hope this becomes the guide for your first few tentative steps on the path of visual discovery and delight.",
-    rating: 3.5,
-    reviews: 6,
-    price: "Rs. 249",
-    bestseller: false,
-    amazonLink: "https://www.amazon.in/dp/B096FYVWJ6/ref=sr_1_1?dchild=1&keywords=Painting+with+Light+Goutam&qid=1622697944&s=books&sr=1-1",
-    sampleLink: "#",
-  },
+
 ]
 
 export default function BooksSection() {
