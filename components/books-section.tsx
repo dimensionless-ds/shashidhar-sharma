@@ -180,7 +180,7 @@ export default function BooksSection() {
         </div>
 
         {/* Books Grid */}
-        <div className="hidden grid-cols-2 gap-4 md:grid sm:gap-6 lg:grid-cols-4 lg:gap-7">
+        <div className="hidden grid-cols-2 gap-4 md:grid sm:gap-5 lg:grid-cols-6 lg:gap-4 xl:gap-5">
           {books.map((book, index) => (
             <div
               key={book.id}

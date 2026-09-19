@@ -12,6 +12,7 @@ import ArticlesSection from "@/components/articles-section"
 import ContactSection from "@/components/contact-section"
 import Footer from "@/components/footer"
 import AskShashiChatbot from "@/components/ask-shashi-chatbot"
+import AiSearch from "@/components/ai-search"
 
 export default function Home() {
   return (
@@ -24,6 +25,7 @@ export default function Home() {
       </div>
       <div className="h-0 md:h-28" aria-hidden="true" />
       <HeroSection />
+      <AiSearch />
       <AboutSection />
       <BooksSection />
       <WorkWorkplaceSection />
