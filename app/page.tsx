@@ -11,7 +11,6 @@ import SpeakingSection from "@/components/speaking-section"
 import ArticlesSection from "@/components/articles-section"
 import ContactSection from "@/components/contact-section"
 import Footer from "@/components/footer"
-import AskShashiChatbot from "@/components/ask-shashi-chatbot"
 import AiSearch from "@/components/ai-search"
 
 export default function Home() {
@@ -44,7 +43,6 @@ export default function Home() {
       <ArticlesSection />
       <ContactSection />
       <Footer />
-      <AskShashiChatbot />
     </main>
   )
 }
