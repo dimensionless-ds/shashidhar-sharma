@@ -16,7 +16,6 @@ import {
   Loader2,
   CheckCircle,
 } from "lucide-react"
-import { DonationSection } from "@/components/donation-section"
 
 const socialLinks = [
   { icon: Linkedin, href: "https://www.linkedin.com/in/shashidhar-sharma/", label: "LinkedIn" },
@@ -381,10 +380,6 @@ export default function ContactSection() {
               </p>
             </div>
 
-            {/* Donation Section */}
-            <div className="order-4 lg:col-start-1 lg:row-start-3">
-              <DonationSection />
-            </div>
           </div>
         </div>
       </div>
