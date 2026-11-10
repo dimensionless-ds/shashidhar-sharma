@@ -12,7 +12,6 @@ import {
   Linkedin,
   Instagram,
   Youtube,
-  MessageCircle,
   BookOpen,
   Loader2,
   CheckCircle,
@@ -379,16 +378,6 @@ export default function ContactSection() {
 
               <p className="text-background/50 text-xs mt-4">
                 Join 25,000+ subscribers. No spam, unsubscribe anytime.
-              </p>
-            </div>
-
-            {/* AI Chatbot Placeholder */}
-            <div className="order-3 mt-6 p-6 bg-card border border-dashed border-border rounded-xl text-center lg:col-start-1 lg:row-start-2">
-              <MessageCircle className="w-10 h-10 text-gold mx-auto mb-3" />
-              <p className="font-medium text-foreground mb-1">Talk to our AI Assistant &quot;Ask Shashi&quot;</p>
-              <p className="text-sm text-muted-foreground">
-                An AI-powered assistant to answer your questions about books and speaking
-                engagements.
               </p>
             </div>
 

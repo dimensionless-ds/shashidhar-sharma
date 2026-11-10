@@ -1,0 +1,2 @@
+import PageShell from "@/components/page-shell"
+export default function TrustPage(){return <PageShell><section className="mx-auto max-w-4xl px-6 py-16"><p className="text-xs uppercase tracking-[.25em] text-gold">Green Footprint Trust</p><h1 className="mt-4 font-serif text-5xl md:text-7xl">[REPLACE: trust mission headline]</h1><p className="mt-8 text-lg text-muted-foreground">[REPLACE: donation and trust description]</p></section></PageShell>}
